@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RamenRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Rammetto+One" rel="stylesheet">
+  </head>
+
+  <!-- Top Banner  -->
+  
+  <div class="container flex-row d-flex justify-content-center" id="top_banner">
+    <div><h1>RAMEN </h1></div>
+    <div><h1><%= image_tag "logo.png" , size: "50x50", alt: "site logo" %></h1></div>
+    <div><h1> KIOSK</h1></div>
+  </div>
+
+
+  <nav class="navbar navbar-dark bg-dark" >
+    <ul class="navbar-nav flex-row d-flex justify-content-center">
+      <li class="nav-item mr-3">
+          <a class="nav-link" href="#">Menu</a>
+      </li>
+      <li class="nav-item mr-3">
+          <a class="nav-link" href="#">Order</a>
+      </li>
+      <li class="nav-item mr-3">
+          <a class="nav-link" href="#">Sign Out</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <body>
+    <div class="content-box">
+      <%= yield %>
+    </div>
+  </body>
+</html>

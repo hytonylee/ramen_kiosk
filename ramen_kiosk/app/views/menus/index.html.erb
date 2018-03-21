@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-10 d-flex flex-wrap">
+    <% @menus.each do |menu| %>
+      <%= render 'menu_index' %>
+    <% end %>
+  </div>
+  <div class="col-2">col-4
+  </div>
+</div>
+
+
+<%= link_to 'New Menu', new_menu_path %>

@@ -1,0 +1,15 @@
+
+<!-- <% @menus.each do |menu| %> -->
+  <div class="card" style="width: 15rem;">
+    <img class="card-img-top" src="<%= menu.image %>" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= menu.title %></h5>
+      <p class="card-text">
+        <%= menu.description %>
+      </p>
+      <%= link_to 'Show', menu %>
+      <%= link_to 'Edit', edit_menu_path(menu) %>
+      <%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<!-- <% end %> -->
