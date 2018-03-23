@@ -1,6 +1,9 @@
 import React from 'react';
-import Header from './Header'
-import MenuPicker from './MenuPicker';
+
+// Belows are pages components
+import Header from './Header';
+import Patron from './Patron';
+// import Server from './Server';
 
 
 
@@ -9,7 +12,9 @@ class App extends React.Component {
     return (
         <div className="App">
           <Header />
-          <MenuPicker />
+          <Patron />
+          {/* <Server /> */}
+
         </div>
     )
   }

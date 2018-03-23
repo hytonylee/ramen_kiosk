@@ -10,8 +10,7 @@
   </head>
 
   <!-- Top Banner  -->
-  
-  <div class="container flex-row d-flex justify-content-center" id="top_banner">
+  <div class="Header">
     <div><h1>RAMEN </h1></div>
     <div><h1><%= image_tag "logo.png" , size: "50x50", alt: "site logo" %></h1></div>
     <div><h1> KIOSK</h1></div>
@@ -26,9 +25,19 @@
       <li class="nav-item mr-3">
           <a class="nav-link" href="#">Order</a>
       </li>
-      <li class="nav-item mr-3">
-          <a class="nav-link" href="#">Sign Out</a>
-      </li>
+      <% if user_signed_in? %>
+        <span>Hello, <%= current_user.first_name %>!</span>
+        |
+        <% if current_user.is_admin? %>
+          <%= link_to 'Dashboard', admin_dashboard_index_path %>
+          |
+        <% end %>
+        <%= link_to 'Sign Out', session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign In', new_session_path %>
+        |
+        <%= link_to 'Sign Up', new_user_path %>
+      <% end %>
     </ul>
   </nav>
 

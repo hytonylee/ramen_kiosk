@@ -1,7 +1,7 @@
 const DOMAIN = 'http://localhost:3000';
 const API_PREFIX = '/api/';
-const BASE_URL = `http://${DOMAIN}${API_PREFIX}`;
-const getJWT = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MywidXNlcm5hbWUiOiJhZG1pbiJ9.qO0bvqbhfIfi-uOL8xA2Cu4JymA66B39Lt2yC6S-BaU";
+const BASE_URL = `${DOMAIN}${API_PREFIX}`;
+const getJWT = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTEsImZpcnN0X25hbWUiOiJNciIsImxhc3RfbmFtZSI6IlJhbWVuIiwiZnVsbF9uYW1lIjoiTXIgUmFtZW4ifQ.lvMmetm9nzEMIQFc-ZRU8QlrtGWqfI91vNYGh6YwNLI";
 
 
 // function getJWT() {

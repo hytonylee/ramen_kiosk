@@ -1,58 +1,34 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
-
-  # GET /users
-  def index
-    @users = User.all
-  end
-
-  # GET /users/1
-  def show
-  end
-
-  # GET /users/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
-  def edit
-  end
-
-  # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
 
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      # The `session` is an object available in all controllers.
+      # It uses cookies to implement state accross multiple requests.
+      # The data stored is encrypted by Rails. The data is often stored
+      # server side (i.e. database) instead of in the cookie.
+      # The cookie will hold the key (or id) to access that data
+      # from the db.
+      session[:user_id] = @user.id
+      flash[:notice] = "Thank you for signing in!"
+      redirect_to root_path
     else
       render :new
     end
   end
 
-  # PATCH/PUT /users/1
-  def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  # DELETE /users/1
-  def destroy
-    @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+  def show
+    @user = User.find params[:id]
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def find_user
-      @user = User.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :is_admin)
-    end
+  def user_params
+    params.require(:user).permit(
+      :first_name, :last_name, :email, :password, :password_confirmation, :address
+    )
+  end
 end

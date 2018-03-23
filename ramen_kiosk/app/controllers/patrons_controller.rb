@@ -1,0 +1,2 @@
+class PatronsController < ApplicationController
+end
