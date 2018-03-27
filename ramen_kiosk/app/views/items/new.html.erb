@@ -1,5 +1,9 @@
-<h1>New Item</h1>
-
-<%= render 'form', item: @item %>
-
-<%= link_to 'Back', items_path %>
+<div class="row content-box">
+  <div class="col-10 d-flex flex-wrap">
+    <%= render 'form', item: @item %>
+    <%= link_to 'Back', items_path %>
+  </div>
+  <div class="col-2 navsidebar">
+    <%= render 'menus/navside'%>
+  </div>
+</div>

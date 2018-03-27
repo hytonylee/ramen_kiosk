@@ -1,17 +1,17 @@
-<%= form_with(model: item, local: true) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+  <%= form_with(model: item, local: true) do |form| %>
+    <% if item.errors.any? %>
+      <div id="error_explanation">
+        <h5><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h5>
 
-      <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :menu_id %>
     <%= form.text_field :menu_id, id: :item_menu_id %>
   </div>
@@ -33,5 +33,13 @@
 
   <div class="actions">
     <%= form.submit %>
-  </div>
-<% end %>
+  </div> -->
+
+      <%= form_for @item, html: {multipart: true} do |f| %>
+        Item: <%= f.text_field :item_name %>
+        Description: <%= f.text_field :item_description %>
+        Price: <%= f.text_field :item_price %>
+        <%= f.file_field :item_image %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end  %>
+    <% end %>

@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="row content-box">
+  <div class="col-10 d-flex flex-wrap">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @menu.title %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @menu.description %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @menu.title %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @menu.description %>
+  </p>
 
 
 
-<p>
-  <%= image_tag @menu.image.url(:large) if @menu.image.present? %>
-</p>
+  <p>
+    <%= image_tag @menu.image.url(:large) if @menu.image.present? %>
+  </p>
 
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+  <%= link_to 'Edit', edit_menu_path(@menu) %> |
+  <%= link_to 'Back', menus_path %>
+  </div>
+  <div class="col-2 navsidebar">
+    <%= render 'navside'%>
+  </div>
+</div>

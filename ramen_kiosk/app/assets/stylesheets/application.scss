@@ -10,10 +10,54 @@
   justify-content: center;
 }
 
-body {
-  
+.content-box {
+  margin: 10px;
 }
 
 .card {
   margin: 5px;
+}
+
+.navsidebar {
+  justify-content: center;
+  text-align: center;
+
+  .SpanNav {
+    margin-bottom: 5px;
+  }
+
+  .NavButton {
+    color: white;
+    width: 100%;
+    background-color: #222529;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5%;
+    margin-bottom: 5px;
+
+    a{
+      color: white;
+    }
+  }
+
+  .NavButton:hover {
+    background-color: #fee770;
+    a {
+      color: #f91528;
+      text-decoration: none;
+    }
+  }
+
+  .flash-message {
+  padding: 8px;
+  color: darkolivegreen;
+  background-color: palegreen;
+  border-radius: 5px;
+}
+
+
+.has-error .help-block {
+  color: red;
+}
+
 }

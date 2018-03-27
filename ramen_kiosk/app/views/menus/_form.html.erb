@@ -1,20 +1,24 @@
-<%= form_with(model: menu, local: true) do |form| %>
-  <% if menu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
 
-      <ul>
-      <% menu.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= form_with(model: menu, local: true) do |form| %>
+    <% if menu.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+
+        <ul>
+        <% menu.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= form_for @menu, html: {multipart: true} do |f| %>
-  Title: <%= f.text_field :title %>
-  Desc: <%= f.text_field :description %>
-  <%= f.file_field :image %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end  %>
+
+
+
+  <%= form_for @menu, html: {multipart: true} do |f| %>
+    Title: <%= f.text_field :title %>
+    Desc: <%= f.text_field :description %>
+    <%= f.file_field :image %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end  %>

@@ -8,7 +8,7 @@
 
 
 
-PASSWORD = 'admin'
+PASSWORD = 'supersecret'
 
 User.destroy_all
 
@@ -29,3 +29,4 @@ lunch_menu = Menu.create(
   display: true,
   image: File.open('app/assets/images/menu_sample.jpg')
 )
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
