@@ -17,9 +17,7 @@ class Api::TokensController < Api::ApplicationController
       # Authentication fails
       # Fool attackers by always responding with a 404 instead
       # of instructive error message like "Incorrect Password"
-
       # head :not_found
-
       render(
         json: {
           errors: [{
@@ -28,7 +26,6 @@ class Api::TokensController < Api::ApplicationController
         },
         status: :not_found
       )
-
     end
   end
 

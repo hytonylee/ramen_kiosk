@@ -26,7 +26,6 @@ import { Container, Card, CardImg, CardText, CardBody,
 
     render(){
       const { menus } = this.state
-        console.log(menus)
       return (
         <main className="Server">
             <div className="menu-container">

@@ -1,39 +1,43 @@
 import React, { Component } from 'react';
-import Header from './Header'
-import Server from './Server';
-import MenuIndex from './MenuIndex';
-import MenuNew from './MenuNew';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-} from "react-router-dom";
+import jwtDecode from 'jwt-decode';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+
+import {Row, Col} from 'reactstrap';
+
+
+// Below is Authentication Component
 import AuthRoute from './AuthRoute';
-import { Row, Col } from 'reactstrap';
+
+// Belows are pages components
+import Header from './Header';
+import Server from './Server';
+import MenuNew from './MenuNew';
+import MenuIndex from './MenuIndex';
 import NavMenu from './NavMenu';
+import SignIn from './SignIn';
+
+
 
 
 class AppAlt extends Component {
-  constructor (props) {
-    super(props);
-    console.log(props);
-
+  constructor(props) {
+    super(props) ;
     this.state = {
       user: null
     };
-
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
   }
 
-  componentWillMount () {
+  componentWillMount(){
     this.signIn();
   }
 
-  signIn () {
-    const jwt =  localStorage.getItem('jwt');
+  signIn() {
+    const jwt = localStorage.getItem('jwt');
 
-    if (jwt) {
+    if(jwt) {
       const payload = jwtDecode(jwt);
       this.setState({
         user: payload
@@ -41,110 +45,53 @@ class AppAlt extends Component {
     }
   }
 
-  signOut () {
-    localStorage.removeItem('jwt');
-    this.setState({user: null});
+  signOut() {
+    localStorage.removeItem("jwt");
+    this.setState({
+      user: null
+    })
   }
 
-  isSignedIn () {
-    // !! to convert this.state.user into a boolean.
+  isSignedIn() {
     return !!this.state.user;
   }
 
-  render () {
+  render() {
     const { user } = this.state;
-
-    // return (
-    //   <Header />
-    // )
-
     return (
       <Router basename='/servers'>
         <div className="AppAlt">
-
-          <MenuNew />
           <Header />
           <Row>
-            <Col xs="10" className="Menu-Wrapper">
-
-              <MenuIndex />
-
+            <Col xs="10">
+              <Switch>
+                <Route
+                   exact
+                   path="/sign_in"
+                   render={props => <SignIn {...props} onSignIn={this.signIn} />}
+                 />
+                <AuthRoute
+                  isAuthenticated={this.isSignedIn()}
+                  exact
+                  path="/menus" component={MenuIndex}
+                />
+                <AuthRoute
+                  isAuthenticated={this.isSignedIn()}
+                  path="/menus/new"
+                  component={MenuNew}
+                />
+              </Switch>
             </Col>
-            <Col xs="2" className="Nav-Selection">
-                <NavMenu />
+            <Col xs="2">
+              <NavMenu user={user}
+              onSignOut={this.signOut}/>
             </Col>
           </Row>
-
-
-
-
-
-
-
-
-
-
-
-          {/* <NavBar
-            user={user}
-            onSignOut={this.signOut}
-          /> */}
-          {/*
-            When wrapping routes inside of a Switch component,
-            only the first Route that matches will be rendered.
-          */}
-          <Switch>
-{/*
-            <Header />
-            <Row>
-              <Col xs="10" className="Menu-Wrapper">
-
-                <MenuIndex />
-
-              </Col>
-              <Col xs="2" className="Nav-Selection">
-                  <NavMenu />
-              </Col>
-            </Row> */}
-
-
-
-
-            {/* <Route exact path="/" component={Server} />
-            <AuthRoute
-              isAuthenticated={this.isSignedIn()}
-              exact
-              path="/menus" component={MenuIndex}
-            />
-            <AuthRoute
-              isAuthenticated={this.isSignedIn()}
-              path="/menus/new"
-              component={MenuNew}
-            /> */}
-            {/* <AuthRoute
-              isAuthenticated={this.isSignedIn()}
-              path="/menus/:id"
-              component={QuestionShowPage}
-            /> */}
-            {/* <Route path="/sign_in" component={SignInPage} /> */}
-            {/* <Route
-              path="/sign_in"
-              render={
-                props => (
-                  <SignInPage
-                    {...props}
-                    onSignIn={this.signIn}
-                  />
-                )
-              }
-            />
-            <Route component={NotFoundPage} /> */}
-
-          </Switch>
         </div>
       </Router>
     )
   }
+
 }
 
 export default AppAlt;

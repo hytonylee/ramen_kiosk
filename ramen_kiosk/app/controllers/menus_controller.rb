@@ -1,7 +1,8 @@
 class MenusController < ApplicationController
   before_action :find_menu, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
-
+  #
+  # mount_uploader :image, ImageUploader
 
 
   # GET /menus
@@ -12,7 +13,7 @@ class MenusController < ApplicationController
 
   # GET /menus/1
   def show
-    
+
   end
 
   # GET /menus/new
@@ -28,7 +29,6 @@ class MenusController < ApplicationController
   def create
     # byebug
     @menu = Menu.new(menu_params)
-    # debugger
     if @menu.save
       redirect_to @menu, notice: 'Menu was successfully created.'
     else

@@ -1,32 +1,45 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 
 function NavMenu (props) {
   const { user, onSignOut = () => {} } = props;
-  return(
+  const handleSignOut = event => {
+    event.preventDefault();
+    onSignOut();
+  }
+  return (
     <div className="NavMenu">
-      <Button color="dark" className="Nav-Select-Button" block>
-        <NavLink exact to="/">Home</NavLink>
-      </Button>
-      <Button color="dark" className="Nav-Select-Button" block>
-        <NavLink exact to="/menus">Menu</NavLink>
-      </Button>
-      <Button color="dark" className="Nav-Select-Button" block>
-        <NavLink exact to="/menus/new" />Add Menu
-      </Button>
+
       {
-        user ? (
-          <Button color="dark" className="Nav-Select-Button" block>
-            <NavLink exact to="/sign_out">Sign Out</NavLink>
-          </Button>
-        ) : (
-          <Button color="dark" className="Nav-Select-Button" block>
-            <NavLink exact to="/sign_in">Sign In</NavLink>
-          </Button>
-        )
-    }
+       user ? (
+         [ <span key="1">Hello, {user.full_name}</span>
+         , <a key="2" href="/sign_out" onClick={onSignOut} className="NavButton">Sign Out</a>
+         ]
+       ) : (
+         <NavLink className="NavButton" exact to="/sign_in">Sign In</NavLink>
+       )
+     }
+     <NavLink className="NavButton" exact to="/">Home</NavLink>
+     <NavLink className="NavButton" exact to="/menus/">Menu</NavLink>
+     <NavLink className="NavButton" exact to="/menus/new">New Menu</NavLink>
+
+
+
+
+
+      {/* <Button color="dark" className="Nav-Select-Button" block>
+        Home
+      </Button>
+      <Button color="dark" className="Nav-Select-Button" block>
+        Menu
+      </Button>
+      <Button color="dark" className="Nav-Select-Button" block>
+        Add Menu
+      </Button>
+      <Button color="dark" className="Nav-Select-Button" block href="/sign_out" onClick={handleSignOut}>
+        Sign Out
+      </Button> */}
     </div>
   )
 }

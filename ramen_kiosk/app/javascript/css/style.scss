@@ -25,8 +25,11 @@ Header.top {
    flex-wrap: wrap;
    padding: 5px;
 
+
+
+
    .menu-card{
-     width: calc(50% - 2 * 5px);;
+     width: calc(50% - 2 * 5px);
    }
 
    .menu-description{
@@ -37,30 +40,35 @@ Header.top {
    }
  }
 
-//
-//  div > .menu-card {
-//    width: 100%;
-//    margin: 5px;
-//
-//  }
-//
-//  @media only screen and (min-width: 576px){
-//
-//
-//    div > .menu-card {
-//      width: calc(50% - 2 * 5px);
-//    }
-//  }
-//
-//  @media only screen and (min-width: 768px) {
-//
-//    div > .menu-card {
-//      width: calc(100% / 3 - 2*5px);
-//    }
-// }
+.menu-container:last-child {
+  align-self: flex-start;
+}
 
+.menu-card.container {
+  margin-left:0px;
+  margin-right:0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: calc(50% - 2 * 5px);
+}
 
+a:hover {
+    color: red;
+}
 
+.NavButton {
+  background-color: #555555;
+  border: none;
+  border-radius: 2%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 5px;
+  width: 100%;
+}
 
 
 .Nav-Selection{

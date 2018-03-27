@@ -5,7 +5,6 @@ import {
   } from 'reactstrap';
 import "../css/style.scss";
 import MenuIndex from './MenuIndex';
-import { NavLink } from 'react-router-dom';
 import NavMenu from './NavMenu';
 
 

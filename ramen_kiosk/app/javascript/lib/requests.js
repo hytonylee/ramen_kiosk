@@ -1,12 +1,15 @@
-const DOMAIN = 'http://localhost:3000';
-const API_PREFIX = '/api/';
-const BASE_URL = `${DOMAIN}${API_PREFIX}`;
-const getJWT = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTEsImZpcnN0X25hbWUiOiJNciIsImxhc3RfbmFtZSI6IlJhbWVuIiwiZnVsbF9uYW1lIjoiTXIgUmFtZW4ifQ.lvMmetm9nzEMIQFc-ZRU8QlrtGWqfI91vNYGh6YwNLI";
+const DOMAIN = 'localhost:3000';
+const API_PREFIX = '/api';
+const BASE_URL = `http://${DOMAIN}${API_PREFIX}`;
+// const getJWT = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZmlyc3RfbmFtZSI6ImEiLCJsYXN0X25hbWUiOiJhIiwiZnVsbF9uYW1lIjoiYSBhIn0.Ptw0rU29pEiBOD51fH-8_jEv4hz84pcO8cxdbjU8YAM";
 
+// HTTP REQUESTS
 
-// function getJWT() {
-//   return localStorage.getItem('jwt');
-// }
+function getJWT () {
+  return localStorage.getItem('jwt');
+}
+
+// HTTP REQUESTS
 
 const Menu = {
   all () {
@@ -14,15 +17,36 @@ const Menu = {
       `${BASE_URL}/menus`,
       {
         headers: {
-          'Authorization': getJWT
+          'Authorization': getJWT()
         }
       }
     )
-    .then(res => res.json())
-    .catch(console.log);
+      .then(res => res.json());
   },
-  create(params) {
-
+  one (id) {
+    return fetch(
+      `${BASE_URL}/menus/${id}`,
+      {
+        headers: {
+          'Authorization': getJWT()
+        }
+      }
+    )
+      .then(res => res.json());
+  },
+  create (params) {
+    return fetch(
+      `${BASE_URL}/menus`,
+      {
+        headers: {
+          'Authorization': getJWT(),
+          'Content-Type':'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(params)
+      }
+    )
+      .then(res => res.json())
   }
 }
 
@@ -42,4 +66,9 @@ const Token = {
   }
 }
 
-export { Menu, Token}
+// export default Menu;
+// ð This named export. Unlike the default, it allows
+// to export multiple variables which must import by their
+// surround by braces.
+// `import { Menu, Token } from './lib/Menu'`
+export { Menu, Token };

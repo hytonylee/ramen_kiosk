@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
 
   namespace :api, defaults: {format: :json} do
-    resources :menus
-    resources :tokens
+    resources :tokens, only: [:create]
+    namespace :servers do
+      resources :menus
+    end
   end
 
   namespace :admin do
