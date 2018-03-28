@@ -5,7 +5,7 @@
 #   end
 # end
 # 👇 short-hand syntax for the above 👆
-class Api::Servers::MenusController < Api::ApplicationController
+class Api::MenusController < Api::ApplicationController
   # before_action :authenticate_user!
   before_action :find_question, only: [:show, :update, :destroy]
 

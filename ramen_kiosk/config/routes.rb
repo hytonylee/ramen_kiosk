@@ -5,16 +5,13 @@ Rails.application.routes.draw do
   match '/patrons', to: 'patron#index', via: :all
   match '/patrons/*path', to: 'patron#index', via: :all
 
-  match '/servers', to: 'server#index', via: :all
-  match '/servers/*path', to: 'server#index', via: :all
+
 
 
 
   namespace :api, defaults: {format: :json} do
     resources :tokens, only: [:create]
-    namespace :servers do
-      resources :menus
-    end
+    resources :menus
   end
 
   namespace :admin do
