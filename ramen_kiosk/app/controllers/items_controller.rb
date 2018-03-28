@@ -23,8 +23,8 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
-    @item= Item.new(item_params)
 
+    @item= Item.new(item_params)
     if @item.save
       redirect_to @item, notice: 'Item was successfully created.'
     else
@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1
   def destroy
+    # byebug
     @item.destroy
     redirect_to items_url, notice: 'Item was successfully destroyed.'
   end
@@ -56,7 +57,7 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.require(:item).permit(:menu_id, :item_name, :item_price, :item_image, :item_description)
+      params.require(:item).permit(:menu_id, :item_name, :item_price, :item_description, :image)
     end
 
     def authorize_user!

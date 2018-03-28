@@ -16,9 +16,12 @@
 
 
 
-  <%= form_for @menu, html: {multipart: true} do |f| %>
-    Title: <%= f.text_field :title %>
-    Desc: <%= f.text_field :description %>
-    <%= f.file_field :image %>
-    <%= f.submit class: 'btn btn-primary' %>
+
+
+  <%= simple_form_for @menu, html: {multipart: true} do |f| %>
+    <%= f.input :title, label: "Menu Title" %>
+    <%= f.input :description, label: "Menu Description" %>
+    <%= f.file_field :image, Label: "Menu Image"%>
+
+    <%= f.button :submit %>
   <% end  %>

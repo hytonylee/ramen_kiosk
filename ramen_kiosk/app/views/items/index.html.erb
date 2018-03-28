@@ -9,10 +9,10 @@
       </div>
       <% @items.each do |item| %>
         <div class="list-group-item d-flex justify-content-between align-items-cente">
-          <img src="<%= item.image %>"
+
+          <%= image_tag item.image.url(:thumb) if item.image.present? %>
           <%= link_to item.item_name, item%>
           <%= item.item_price %>
-          <%= item.item_image %>
           <%= link_to 'Show', item %>
           <%= link_to 'Edit', edit_item_path(item) %>
           <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>

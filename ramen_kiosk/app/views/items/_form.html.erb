@@ -1,4 +1,4 @@
-  <%= form_with(model: item, local: true) do |form| %>
+  <%#= form_with(model: item, local: true) do |form| %>
     <% if @item.errors.any? %>
       <div id="error_explanation">
         <h5><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h5>
@@ -15,7 +15,7 @@
         Item: <%= f.text_field :item_name %>
         Description: <%= f.text_field :item_description %>
         Price: <%= f.text_field :item_price %>
-        <%= f.file_field :item_image %>
+        <%= f.file_field :image %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end  %>
-    <% end %>
+    <%# end %>
