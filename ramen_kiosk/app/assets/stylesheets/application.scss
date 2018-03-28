@@ -16,6 +16,17 @@
 
 .card {
   margin: 5px;
+
+  .card-header{
+    background: crimson;
+    justify-content: flex-end;
+  }
+  a {
+    color: white;
+  }
+  a:hover{
+    color: grey;
+  }
 }
 
 .navsidebar {
@@ -24,6 +35,8 @@
 
   .SpanNav {
     margin-bottom: 5px;
+    font-family: 'Rammetto One', cursive;
+    color: crimson;
   }
 
   .NavButton {
@@ -41,10 +54,15 @@
   }
 
   .NavButton:hover {
-    background-color: #fee770;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #222529;
     a {
       color: #f91528;
       text-decoration: none;
+      font-weight: bold;
     }
   }
 
@@ -58,6 +76,10 @@
 
 .has-error .help-block {
   color: red;
+  }
 }
 
+.list-group {
+  margin-top: 21px;
+  width: 90%;
 }

@@ -13,6 +13,7 @@ const getJWT = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZmlyc3RfbmFtZSI6ImEiLCJsYXN0X25
 
 const Menu = {
   all () {
+    console.log(Menu)
     return fetch(
       `${BASE_URL}/menus`,
       {

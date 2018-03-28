@@ -19,7 +19,7 @@ class Patron extends Component {
      .then(
        menus => {
          this.setState({
-           menus: menus
+           menus: menus.filter(menu => menu.display)
          })
        }
      )

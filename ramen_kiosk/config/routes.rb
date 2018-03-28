@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :item_toppings
+  resources :menu_items
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   match '/patrons', to: 'patron#index', via: :all
@@ -28,10 +30,12 @@ Rails.application.routes.draw do
     # resources :toppings, only: [:create, :destroy]
   end
 
+  resources :items, shallow: true do
+  end
+
   resources :menu_orders
   resources :orders
-  resources :items
-  # resources :menus
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

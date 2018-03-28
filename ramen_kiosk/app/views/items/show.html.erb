@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Menu:</strong>
-  <%= @item.menu %>
-</p>
 
+<!-- <p>
+  <%= image_tag @item.image.url(:small) if @item.image.present? %>
+</p> -->
+
+<p>
+  <%= image_tag @item.image.url(:small) if @item.image.present? %>
+</p>
 <p>
   <strong>Item name:</strong>
   <%= @item.item_name %>
 </p>
 
 <p>
-  <strong>Item price:</strong>
+  <strong>Price:</strong>
   <%= @item.item_price %>
 </p>
-
 <p>
-  <strong>Item image:</strong>
-  <%= @item.item_image %>
+  <strong>Description:</strong>
+  <%= @item.item_description %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
+
+
+<%= link_to 'Edit', edit_item_path %> |
 <%= link_to 'Back', items_path %>

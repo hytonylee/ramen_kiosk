@@ -11,5 +11,5 @@ ActiveAdmin.register Menu do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+  permit_params :title, :description, :is_display, :user_id
 end
