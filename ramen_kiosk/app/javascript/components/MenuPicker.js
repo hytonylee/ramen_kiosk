@@ -3,6 +3,7 @@ import { Menu } from '../lib/requests';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Container } from 'reactstrap';
 import "../css/style.scss";
+import { Link } from "react-router-dom";
 
 
 class MenuPicker extends Component {
@@ -43,7 +44,9 @@ class MenuPicker extends Component {
                       <CardBody>
                         <CardTitle>{menu.title}</CardTitle>
                         <CardText className="menu-description">{menu.description}</CardText>
-                        <Button>Button</Button>
+                        <Link to="/item_picker">
+                          <Button>Select Item</Button>
+                        </Link>
                       </CardBody>
                     </Card>
                   </Container>

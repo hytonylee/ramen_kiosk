@@ -13,7 +13,6 @@ const getJWT = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZmlyc3RfbmFtZSI6ImEiLCJsYXN0X25
 
 const Menu = {
   all () {
-    console.log(Menu)
     return fetch(
       `${BASE_URL}/menus`,
       {
@@ -56,7 +55,6 @@ const Menu = {
 
 const Item = {
   all () {
-    console.log(Item)
     return fetch(
       `${BASE_URL}/items`,
       {
@@ -79,22 +77,38 @@ const Item = {
       }
     )
       .then(res => res.json());
-  },
-  create (params) {
-    return fetch(
-      `${BASE_URL}/menus`,
-      {
-        headers: {
-          'Authorization': getJWT,
-          'Content-Type':'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify(params)
-      }
-    )
-      .then(res => res.json())
   }
 }
+
+
+const MenuItem = {
+  all () {
+    return fetch(
+      `${BASE_URL}/menu_items`,
+      {
+        headers: {
+          'Authorization': getJWT
+        }
+      }
+    )
+      .then(res =>  {
+        return res.json();
+      })
+  },
+  one (id) {
+    return fetch(
+      `${BASE_URL}/menu_items/${id}`,
+      {
+        headers: {
+          'Authorization': getJWT
+        }
+      }
+    )
+      .then(res => res.json());
+  }
+}
+
+
 
 
 const Token = {

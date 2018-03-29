@@ -8,14 +8,20 @@ class MenuSerializer < ActiveModel::Serializer
     )
   end
 
-
   has_many :items
 
   class ItemSerializer < ActiveModel::Serializer
-    attributes :item_name, :item_price, :item_description, :image
+    attributes :id, :item_name, :item_price, :item_description, :image
 
     def author_full_name
       object.user&.full_name
     end
+  end
+
+
+  has_many :menu_items
+
+  class MenuItemSerializer < ActiveModel::Serializer
+    attributes :id, :menu_id, :item_id
   end
 end

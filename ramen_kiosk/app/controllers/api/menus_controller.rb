@@ -24,10 +24,8 @@ class Api::MenusController < Api::ApplicationController
     @menu = Menu.find params[:id]
   end
 
-  # def question_params
-  #   params.require(:menu).permit(:title, :body)
-  # end
+
   def question_params
-    params.require(:menu).permit(:title, :display, :user_id, :image, :description, item_ids: [])
+    params.require(:menu).permit(:id, :title, :display, :user_id, :image, :description, item_ids: [])
   end
 end

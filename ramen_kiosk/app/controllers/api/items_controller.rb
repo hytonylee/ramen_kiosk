@@ -23,13 +23,7 @@ class Api::ItemsController < Api::ApplicationController
 
 
     def item_params
-      params.require(:item).permit(:item_name, :item_price, :item_description, :images)
+      params.require(:item).permit(:id, :item_name, :item_price, :item_description, :images)
     end
 
-    def authorize_user!
-      unless can?(:manage, @item)
-        flash[:alert] = 'Access Denied!'
-        redirect_to item_path(@item)
-      end
-    end
 end
