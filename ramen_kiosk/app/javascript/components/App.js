@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 // Belows are pages components
 import Header from './Header';
-import Patron from './Patron';
+import MenuPicker from './MenuPicker';
+import ItemPicker from './ItemPicker';
 
 
 
@@ -13,7 +14,8 @@ class App extends Component {
     return (
         <div className="App">
           <Header />
-          <Patron />
+          <MenuPicker />
+          <ItemPicker />
 
         </div>
     )

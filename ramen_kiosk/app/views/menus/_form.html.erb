@@ -22,6 +22,8 @@
     <%= f.input :title, label: "Menu Title" %>
     <%= f.input :description, label: "Menu Description" %>
     <%= f.file_field :image, Label: "Menu Image"%>
+    <%= f.association :items, collection: Item.order(:item_name), label_method: :list_display,  input_html: {class: 'chosen-select'} %>
+    <%# byebug %>
 
     <%= f.button :submit %>
   <% end  %>

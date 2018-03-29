@@ -1,13 +1,6 @@
-# module Api
-#   module V1
-#     class QuestionsController < ApplicationController
-#     end
-#   end
-# end
-# 👇 short-hand syntax for the above 👆
 class Api::MenusController < Api::ApplicationController
-  # before_action :authenticate_user!
-  before_action :find_question, only: [:show, :update, :destroy]
+
+  before_action :find_menu, only: [:show, :update, :destroy]
 
   def index
     menus = Menu.order(created_at: :desc)
@@ -15,6 +8,7 @@ class Api::MenusController < Api::ApplicationController
   end
 
   def show
+    byebug
     render json: @menu
   end
 
@@ -26,11 +20,14 @@ class Api::MenusController < Api::ApplicationController
   end
 
   private
-  def find_question
+  def find_menu
     @menu = Menu.find params[:id]
   end
 
+  # def question_params
+  #   params.require(:menu).permit(:title, :body)
+  # end
   def question_params
-    params.require(:menu).permit(:title, :body)
+    params.require(:menu).permit(:title, :display, :user_id, :image, :description, item_ids: [])
   end
 end

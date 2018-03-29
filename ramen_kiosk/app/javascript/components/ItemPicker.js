@@ -5,11 +5,11 @@ import { Card, CardImg, CardText, CardBody,
 import "../css/style.scss";
 
 
-class Patron extends Component {
+class ItemPicker extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      menus:[],
+      items:[],
     }
   }
 
@@ -17,9 +17,10 @@ class Patron extends Component {
     Menu
      .all()
      .then(
-       menus => {
+       items => {
+         console.log("items:", items)
          this.setState({
-           menus: menus.filter(menu => menu.display)
+           items: items.filter(item => item.display)
          })
        }
      )
@@ -27,21 +28,21 @@ class Patron extends Component {
 
 
   render(){
-    const { menus } = this.state
-      console.log(menus)
+    const { items } = this.state
+      console.log(items)
     return (
-      <main className="Patron">
-          <div className="menu-container">
+      <main className="ItemPicker">
+          <div className="item-container">
             {
-              menus && menus.map(
-                menu =>
-                  <Container key={menu.id} className="menu-card">
+              items && items.map(
+                item =>
+                  <Container key={item.id} className="item-card">
                     <Card>
-                      <CardImg top width="30%" src={menu.image.large.url} alt="Card image cap" />
+                      <CardImg top width="30%" src={item.image.large.url} alt="Card image cap" />
 
                       <CardBody>
-                        <CardTitle>{menu.title}</CardTitle>
-                        <CardText className="menu-description">{menu.description}</CardText>
+                        <CardTitle>{item.title}</CardTitle>
+                        <CardText className="item-description">{item.description}</CardText>
                         <Button>Button</Button>
                       </CardBody>
                     </Card>
@@ -54,4 +55,4 @@ class Patron extends Component {
   }
 }
 
-export default Patron;
+export default ItemPicker;

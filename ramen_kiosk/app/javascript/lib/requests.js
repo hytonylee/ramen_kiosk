@@ -53,6 +53,50 @@ const Menu = {
   }
 }
 
+
+const Item = {
+  all () {
+    console.log(Item)
+    return fetch(
+      `${BASE_URL}/items`,
+      {
+        headers: {
+          'Authorization': getJWT
+        }
+      }
+    )
+      .then(res =>  {
+        return res.json();
+      })
+  },
+  one (id) {
+    return fetch(
+      `${BASE_URL}/items/${id}`,
+      {
+        headers: {
+          'Authorization': getJWT
+        }
+      }
+    )
+      .then(res => res.json());
+  },
+  create (params) {
+    return fetch(
+      `${BASE_URL}/menus`,
+      {
+        headers: {
+          'Authorization': getJWT,
+          'Content-Type':'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(params)
+      }
+    )
+      .then(res => res.json())
+  }
+}
+
+
 const Token = {
   create (params) {
     return fetch(
@@ -69,9 +113,5 @@ const Token = {
   }
 }
 
-// export default Menu;
-// ð This named export. Unlike the default, it allows
-// to export multiple variables which must import by their
-// surround by braces.
-// `import { Menu, Token } from './lib/Menu'`
-export { Menu, Token };
+
+export { Menu, Item, Token };

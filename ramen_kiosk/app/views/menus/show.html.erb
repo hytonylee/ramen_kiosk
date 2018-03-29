@@ -4,6 +4,7 @@
 
   <p>
     <strong>Title:</strong>
+
     <%= @menu.title %>
   </p>
   <p>
@@ -11,7 +12,12 @@
     <%= @menu.description %>
   </p>
 
-
+  <div class="tag-list">
+    <% @menu.items.order(:item_name).each do |item| %>
+      <%= item.item_name%>
+    </span>
+  <% end %>
+  </div>
 
   <p>
     <%= image_tag @menu.image.url(:large) if @menu.image.present? %>
