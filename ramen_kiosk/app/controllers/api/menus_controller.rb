@@ -8,7 +8,7 @@ class Api::MenusController < Api::ApplicationController
   end
 
   def show
-    byebug
+    # byebug
     render json: @menu
   end
 

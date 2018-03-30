@@ -4,9 +4,16 @@ class Api::ItemsController < Api::ApplicationController
 
   # GET /items
   def index
-    @items = Item.order(created_at: :desc)
-    render json: @items
+    items = Item.order(created_at: :desc)
+    render json: items
   end
+
+
+  def show_item
+    show_items = Menu.find(params[:menu_id]).items
+    render json: show_items
+  end
+
 
   # GET /items/1
   def show

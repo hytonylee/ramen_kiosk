@@ -20,7 +20,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={MenuPicker} />
-            <Route exact path="/item_picker" component={ItemPicker} />
+            <Route exact path="/:menuId/items" component={ItemPicker} />
           </Switch>
         </div>
       </Router>

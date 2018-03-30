@@ -3,6 +3,7 @@ import { Menu } from '../lib/requests';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Container } from 'reactstrap';
 import "../css/style.scss";
+import { Link } from "react-router-dom";
 
 
 class ItemPicker extends Component {
@@ -14,13 +15,15 @@ class ItemPicker extends Component {
   }
 
   componentDidMount() {
+    const menuId = this.props.match.params.menuId;
+
     Menu
-     .all()
+     .one(menuId)
      .then(
-       items => {
-         console.log("items:", items)
+       menus => {
+         console.log("menus", menus)
          this.setState({
-           items: items.filter(item => item.display)
+           items: menus.items
          })
        }
      )
@@ -29,21 +32,21 @@ class ItemPicker extends Component {
 
   render(){
     const { items } = this.state
-      console.log(items)
     return (
       <main className="ItemPicker">
-          <div className="item-container">
+          <div className="menu-container">
             {
               items && items.map(
                 item =>
-                  <Container key={item.id} className="item-card">
+                  <Container key={item.id} className="items-card">
                     <Card>
                       <CardImg top width="30%" src={item.image.large.url} alt="Card image cap" />
 
                       <CardBody>
-                        <CardTitle>{item.title}</CardTitle>
-                        <CardText className="item-description">{item.description}</CardText>
-                        <Button>Button</Button>
+
+                        <CardTitle>{item.item_name}</CardTitle>
+                        <CardText className="items-description">{item.item_description}</CardText>
+                        <CardText className="items-description">{item.item_price}</CardText>
                       </CardBody>
                     </Card>
                   </Container>

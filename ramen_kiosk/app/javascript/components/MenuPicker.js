@@ -14,12 +14,15 @@ class MenuPicker extends Component {
     }
   }
 
+  selectMenu(event) {
+    const menuId = event.currentTarget.id;
+  }
+
   componentDidMount() {
     Menu
      .all()
      .then(
        menus => {
-         console.log("menus:", menus)
          this.setState({
            menus: menus.filter(menu => menu.display)
          })
@@ -30,7 +33,6 @@ class MenuPicker extends Component {
 
   render(){
     const { menus } = this.state
-      console.log(menus)
     return (
       <main className="MenuPicker">
           <div className="menu-container">
@@ -42,11 +44,13 @@ class MenuPicker extends Component {
                       <CardImg top width="30%" src={menu.image.large.url} alt="Card image cap" />
 
                       <CardBody>
+
                         <CardTitle>{menu.title}</CardTitle>
                         <CardText className="menu-description">{menu.description}</CardText>
-                        <Link to="/item_picker">
-                          <Button>Select Item</Button>
+                        <Link to={menu.id+"/items"}>
+                          <Button id={menu.id} onClick={this.selectMenu}>Select Item</Button>
                         </Link>
+
                       </CardBody>
                     </Card>
                   </Container>

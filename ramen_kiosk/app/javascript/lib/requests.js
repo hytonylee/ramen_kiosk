@@ -128,4 +128,4 @@ const Token = {
 }
 
 
-export { Menu, Item, Token };
+export { Menu, Item, Token, MenuItem };

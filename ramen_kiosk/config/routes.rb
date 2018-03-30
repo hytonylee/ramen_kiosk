@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :tokens, only: [:create]
     resources :menus
     resources :items
+    resources :menu_items
   end
 
   namespace :admin do

@@ -1,4 +1,4 @@
-class Api::MenuItemsController < ApplicationController
+class Api::MenuItemsController < Api::ApplicationController
 
   before_action :find_menu, only: [:show]
 
@@ -10,6 +10,8 @@ class Api::MenuItemsController < ApplicationController
   def show
     render json: @menu_item
   end
+
+
 
   def create
     menu_item = MenuItem.new menu_items_param
