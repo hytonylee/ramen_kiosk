@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
-  before_action :find_menu, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_menu, except: [:new, :index, :create]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
 
@@ -12,7 +13,7 @@ class MenusController < ApplicationController
 
   # GET /menus/1
   def show
-    
+
   end
 
   # GET /menus/new
@@ -28,7 +29,6 @@ class MenusController < ApplicationController
   def create
     # byebug
     @menu = Menu.new(menu_params)
-    # debugger
     if @menu.save
       redirect_to @menu, notice: 'Menu was successfully created.'
     else
@@ -59,7 +59,7 @@ class MenusController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def menu_params
-      params.require(:menu).permit(:title, :display, :user_id, :image, :description)
+      params.require(:menu).permit(:title, :display, :user_id, :image, :description, item_ids: [])
     end
 
     def authorize_user!

@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :find_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_item, except: [:new, :index, :create]
+  before_action :authorize_user!, only: [:destroy, :show, :edit, :update]
 
   # GET /items
   def index
-    @items = Item.all
+    @items = Item.order(created_at: :desc)
   end
 
   # GET /items/1
@@ -22,8 +23,8 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
-    @item = Item.new(item_params)
 
+    @item= Item.new(item_params)
     if @item.save
       redirect_to @item, notice: 'Item was successfully created.'
     else
@@ -40,8 +41,10 @@ class ItemsController < ApplicationController
     end
   end
 
+
   # DELETE /items/1
   def destroy
+    # byebug
     @item.destroy
     redirect_to items_url, notice: 'Item was successfully destroyed.'
   end
@@ -54,13 +57,13 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.require(:item).permit(:menu_id, :item_name, :item_price, :item_image)
+      params.require(:item).permit(:menu_id, :item_name, :item_price, :item_description, :image)
     end
 
     def authorize_user!
       unless can?(:manage, @item)
         flash[:alert] = 'Access Denied!'
-        redirect_to menu_path(@item.menu)
+        redirect_to item_path(@item)
       end
     end
 end

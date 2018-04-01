@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
 
+  resources :item_toppings
+  resources :menu_items
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   match '/patrons', to: 'patron#index', via: :all
   match '/patrons/*path', to: 'patron#index', via: :all
 
-  match '/servers', to: 'server#index', via: :all
-  match '/servers/*path', to: 'server#index', via: :all
+
 
 
 
   namespace :api, defaults: {format: :json} do
+    resources :tokens, only: [:create]
     resources :menus
-    resources :tokens
+    resources :items
+    resources :menu_items
   end
 
   namespace :admin do
@@ -19,13 +24,21 @@ Rails.application.routes.draw do
 
   end
 
-  root 'patron#index'
+  root 'menus#index'
+
+
+  resources :menus, shallow: true do
+    # resources :items, only: [:create, :destroy]
+    # resources :toppings, only: [:create, :destroy]
+  end
+
+  resources :items, shallow: true do
+  end
 
   resources :menu_orders
   resources :orders
-  resources :items
-  resources :menus
-  resources :users
+
   resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

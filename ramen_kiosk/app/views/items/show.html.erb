@@ -1,24 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="row content-box">
+  <div class="col-10">
+        <p id="notice" class="flash-message"><%= notice %></p>
 
-<p>
-  <strong>Menu:</strong>
-  <%= @item.menu %>
-</p>
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <p class="h5"><strong><%= @item.item_name %></strong></p>
+          <div>
+            <%= link_to(
+                  fa_icon('cog'),
+                  edit_item_path
+                ) %>
+            |
+            <%= link_to(
+                  fa_icon('times'),
+                  item_path(@item),
+                  method: :delete,
+                ) %>
+            |
+            <%= link_to(
+                  fa_icon('arrow-left'),
+                  items_path
+                ) %>
+          </div>
+        </div>
+        <div class="card-content p-4">
+          <div class="row">
+            <div class="col-6">
+                <p>
+                  <%= image_tag @item.image.url(:medium) if @item.image.present? %>
+                </p>
+            </div>
+            <div class="col-6">
+                  <p>
+                    <strong>Price:</strong>
+                    <%= @item.item_price %>
+                  </p>
 
-<p>
-  <strong>Item name:</strong>
-  <%= @item.item_name %>
-</p>
-
-<p>
-  <strong>Item price:</strong>
-  <%= @item.item_price %>
-</p>
-
-<p>
-  <strong>Item image:</strong>
-  <%= @item.item_image %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+                  <p><strong>Description:</strong><br>
+                  <%= @item.item_description %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-2 navsidebar">
+    <%= render 'menus/navside'%>
+  </div>
+</div>

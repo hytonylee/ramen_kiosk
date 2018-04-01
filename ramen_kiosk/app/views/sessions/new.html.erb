@@ -1,24 +1,21 @@
-<h1>Sign In</h1>
+<div class="row content-box">
+  <div class="col-10 d-flex flex-wrap">
 
-<%#
-  We can use `form_for` to generate forms without providing it
-  with a model instance. Instead, it can be given a symbol and it
-  will use the name of the symbol as if it were the name of
-  the model. However, it won't be able to tell if you mean to
-  use a new or edit form. It also will not use
-  the correct `action` attribute (replace it with the url: argument)
-%>
+    <%= form_for :session, url: session_path do |f| %>
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
 
-<%= form_for :session, url: session_path do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+
+      <%= f.submit 'Submit' %>
+    <% end %>
   </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="col-2 navsidebar">
+    <%= render 'menus/navside'%>
   </div>
-
-  <%= f.submit 'Submit' %>
-<% end %>
+</div>

@@ -5,14 +5,24 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Authentication Gem
+gem 'devise'
+
+# Dashboard Gem
+gem 'activeadmin'
+
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'simple_form'
+gem 'chosen-rails'
+gem 'font-awesome-rails'
+gem 'simple_form', '~> 3.5.1', github: 'plataformatec/simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'cowsay'
 gem 'webpacker'
+
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

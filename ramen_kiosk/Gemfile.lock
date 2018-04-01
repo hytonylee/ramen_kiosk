@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/plataformatec/simple_form.git
+  revision: 102b9eb16a31ecf3e3f974d282359b1236ab5346
+  specs:
+    simple_form (3.5.1)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,6 +38,18 @@ GEM
       activemodel (>= 4.1, < 6)
       case_transform (>= 0.2)
       jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
+    activeadmin (1.2.1)
+      arbre (>= 1.1.1)
+      coffee-rails
+      formtastic (~> 3.1)
+      formtastic_i18n
+      inherited_resources (~> 1.7)
+      jquery-rails (>= 4.2.0)
+      kaminari (>= 0.15, < 2.0)
+      railties (>= 4.2, < 5.2)
+      ransack (~> 1.3)
+      sass (~> 3.1)
+      sprockets (< 4.1)
     activejob (5.1.5)
       activesupport (= 5.1.5)
       globalid (>= 0.3.6)
@@ -44,6 +64,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    arbre (1.1.1)
+      activesupport (>= 3.0.0)
     arel (8.0.0)
     autoprefixer-rails (8.0.0)
       execjs
@@ -63,9 +85,26 @@ GEM
     case_transform (0.2)
       activesupport
     choice (0.2.0)
+    chosen-rails (1.8.3)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     cowsay (0.3.0)
     crass (1.0.3)
+    devise (4.4.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.1)
@@ -227,15 +266,28 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
+    font-awesome-rails (4.7.0.3)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
+    formtastic (3.1.5)
+      actionpack (>= 3.2.13)
+    formtastic_i18n (0.6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    has_scope (0.7.1)
+      actionpack (>= 4.1, < 5.2)
+      activesupport (>= 4.1, < 5.2)
     hirb (0.7.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     inflecto (0.0.2)
+    inherited_resources (1.8.0)
+      actionpack (>= 4.2, <= 5.2)
+      has_scope (~> 0.6)
+      railties (>= 4.2, <= 5.2)
+      responders
     ipaddress (0.8.3)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
@@ -244,6 +296,18 @@ GEM
     json (2.1.0)
     jsonapi-renderer (0.2.0)
     jwt (2.1.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -266,7 +330,10 @@ GEM
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    orm_adapter (0.5.0)
     pg (1.0.0)
+    polyamorous (1.3.3)
+      activerecord (>= 3.0)
     popper_js (1.12.9)
     puma (3.11.3)
     rack (2.0.4)
@@ -304,6 +371,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.3.0)
+    ransack (1.8.8)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -315,6 +388,9 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -326,9 +402,12 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    simple_form (3.5.1)
-      actionpack (> 4, < 5.2)
-      activemodel (> 4, < 5.2)
+    sass-rails (5.0.7)
+      railties (>= 4.0.0, < 6)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -343,12 +422,15 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.20.0)
     thread_safe (0.3.6)
+    tilt (2.0.8)
     trollop (2.1.2)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    warden (1.2.7)
+      rack (>= 1.0)
     webpacker (3.3.1)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -363,15 +445,19 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  activeadmin
   awesome_print
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0)
   byebug
   cancancan
   carrierwave
+  chosen-rails
   cowsay
+  devise
   faker (~> 1.8.7)
   fog
+  font-awesome-rails
   hirb
   jquery-rails
   jwt
@@ -382,7 +468,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.1.5)
   rails-erd
-  simple_form
+  simple_form (~> 3.5.1)!
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

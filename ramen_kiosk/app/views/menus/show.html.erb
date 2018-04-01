@@ -1,19 +1,55 @@
-<p id="notice"><%= notice %></p>
+<div class="row content-box">
+  <div class="col-10">
+    <p id="notice" class="flash-message"><%= notice %></p>
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <p class="h5"><strong><%= @menu.title %></strong></p>
+          <div>
+            <%= link_to(
+                  fa_icon('cog'),
+                  edit_menu_path(@menu)
+                ) %>
+            |
+            <%= link_to(
+                  fa_icon('times'),
+                  menu_path(@menu),
+                  method: :delete,
+                ) %>
+            |
+            <%= link_to(
+                  fa_icon('arrow-left'),
+                  menus_path
+                ) %>
+          </div>
+        </div>
+        <div class="card-content p-4">
+          <div class="row">
+            <div class="col-6">
+                <p>
+                  <%= image_tag @menu.image.url(:medium) if @menu.image.present? %>
+                </p>
+            </div>
+            <div class="col-6">
+                  <p>
+                    <strong>Display:</strong>
+                    <%= @menu.display %>
+                  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @menu.title %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @menu.description %>
-</p>
+                  <strong>Items:</strong>
+                  <div class="tag-list">
+                    <% @menu.items.order(:item_name).each do |item| %>
+                      <%= item.item_name%>
+                    <% end %>
+                  </div>
 
-
-
-<p>
-  <%= image_tag @menu.image.url(:large) if @menu.image.present? %>
-</p>
-
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+                  <p class="mt-3"><strong>Description:</strong><br>
+                  <%= @menu.description %></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-2 navsidebar">
+    <%= render 'menus/navside'%>
+  </div>
+</div>
