@@ -1,7 +1,13 @@
 <div class="row content-box">
-  <div class="col-10 d-flex flex-wrap">
-    <%= render 'form', item: @item %>
-    <%= link_to 'Back', items_path %>
+  <div class="col-10">
+    <div class="card">
+      <div class="card-header pl-4">
+        <p class="h5"><strong>New Item</strong></p>
+      </div>
+      <div class="card-content p-4">
+        <%= render "form" %>
+      </div>
+    </div>
   </div>
   <div class="col-2 navsidebar">
     <%= render 'menus/navside'%>

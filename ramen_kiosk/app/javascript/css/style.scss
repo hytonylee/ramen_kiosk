@@ -1,9 +1,20 @@
 /* Header Style  */
 
-Header.top {
-  font-family: 'Rammetto One', cursive;
-  border-bottom: solid thin #222529;
-  border-width: 20px;
+Header{
+  flex-direction: column;
+  .top{
+    font-family: 'Rammetto One', cursive;
+
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .top-banner{
+    background-color: #222529;
+    height: 20px;
+    border-bottom: thin solid crimson;
+  }
 }
 
 .logo-circle {
@@ -84,4 +95,12 @@ a:hover {
 
 .items-card{
   width: calc(50% - 2 * 5px);
+}
+
+
+// ==================   404 Page Not Found ======================
+
+.PageNotFound{
+  margin-top: 100px;
+  text-align: center;
 }

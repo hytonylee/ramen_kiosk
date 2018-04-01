@@ -1,6 +1,27 @@
-<h1>Editing Item</h1>
-
-<%= render 'form', item: @item %>
-
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', items_path %>
+<div class="row content-box">
+  <div class="col-10">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between">
+          <p class="h5"><strong>Edit Item</strong></p>
+          <div>
+            <%= link_to(
+                  fa_icon('times'),
+                  item_path(@item),
+                  method: :delete,
+                ) %>
+            |
+            <%= link_to(
+                  fa_icon('arrow-left'),
+                  items_path
+                ) %>
+          </div>
+        </div>
+      <div class="card-content p-4">
+        <%= render "form" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-2 navsidebar">
+    <%= render 'menus/navside'%>
+  </div>
+</div>

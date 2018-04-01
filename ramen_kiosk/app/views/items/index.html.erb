@@ -1,26 +1,50 @@
 <div class="row content-box">
-  <div class="col-10 d-flex flex-wrap">
-
-    <p id="notice"><%= notice %></p>
-
-    <div class="list-group">
-      <div class="list-group-item d-flex justify-content-between align-items-cente">
-        <span>ITEM LIST</span> <%= link_to 'New Item', new_item_path %>
-      </div>
-      <% @items.each do |item| %>
-        <div class="list-group-item d-flex justify-content-between align-items-cente">
-
-          <%= image_tag item.image.url(:thumb) if item.image.present? %>
-          <%= link_to item.item_name, item%>
-          <%= item.item_price %>
-          <%= link_to 'Show', item %>
-          <%= link_to 'Edit', edit_item_path(item) %>
-          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="col-10">
+    <p id="notice" class="flash-message"><%= notice %></p>
+      <div class="card">
+        <div class="card-header d-flex justify-content-between">
+          <p class="h5"><strong>Item List</strong></p>
+          <div>
+            <%= link_to(
+                  fa_icon('plus'),
+                  new_item_path
+                ) %>
+            |
+            <%= link_to(
+                  fa_icon('arrow-left'),
+                  items_path
+                ) %>
+          </div>
         </div>
-      <% end %>
+        <div class="card-content p-4">
+          <table class="table item-list">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @items.each do |item| %>
+              <tr>
+                <th scope="row"><%= image_tag item.image.url(:thumb) if item.image.present? %></th>
+                <td>  <%= link_to item.item_name, item%></td>
+                <td>$<%= item.item_price %></td>
+                <td>
+                  <%= link_to 'Show', item %>
+                   |
+                  <%= link_to 'Edit', edit_item_path(item) %>
+                   | 
+                  <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
     </div>
-
-
   </div>
   <div class="col-2 navsidebar">
     <%= render 'menus/navside'%>

@@ -5,22 +5,25 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+
     <%= javascript_include_tag 'application' %>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans|Rammetto+One" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
 
   <!-- Top Banner  -->
-  <div class="Header">
-    <div><h1>RAMEN </h1></div>
-    <div><h1><%= image_tag "logo.png" , size: "50x50", alt: "site logo" %></h1></div>
-    <div><h1> KIOSK</h1></div>
-  </div>
+  <%= link_to menus_path, class: "header_link" do %>
+    <div class="Header">
+      <div><h1>RAMEN </h1></div>
+      <div><h1><%= image_tag "logo.png" , size: "50x50", alt: "site logo" %></h1></div>
+      <div><h1> KIOSK</h1></div>
+    </div>
+  <% end  %>
 
-
-  <nav class="navbar navbar-dark bg-dark" >
+  <nav class="navbar" >
     <ul class="navbar-nav flex-row d-flex justify-content-center">
-    
+
     </ul>
   </nav>
 

@@ -1,21 +1,27 @@
-  <%#= form_with(model: item, local: true) do |form| %>
-    <% if @item.errors.any? %>
-      <div id="error_explanation">
-        <h5><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h5>
+<% if @item.errors.any? %>
+  <div id="error_explanation" class="alert alert-warning alert-dismissible fade show">
+    <strong><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</strong>
 
-        <ul>
-        <% item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
+    <% item.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
     <% end %>
 
-      <%= form_for @item, html: {multipart: true} do |f| %>
-        Item: <%= f.text_field :item_name %>
-        Description: <%= f.text_field :item_description %>
-        Price: <%= f.text_field :item_price %>
-        <%= f.file_field :image %>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end  %>
-    <%# end %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+<% end %>
+
+<%= simple_form_for( @item, html: { class: "form-group", multipart: true}) do |f| %>
+  <%= f.input :item_name, label: "Item" %>
+  <%= f.input :item_description, as: :text, label: "Description" %>
+  <%= f.input :item_price, label: "Price" %>
+  <%= f.file_field :image, label: "Image", class: "mb-3"%>
+  <%= f.input :is_display,label: "Display",
+          as: :radio_buttons,
+          default: true,
+          :checked => true
+  %>
+  <%= f.button :submit, class:"btn btn-dark" %>
+<% end  %>

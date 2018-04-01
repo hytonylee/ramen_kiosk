@@ -1,27 +1,33 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="flash-message"><%= notice %></p>
 
 
 <div class="row content-box">
   <div class="col-10 d-flex flex-wrap">
     <% @menus.each do |menu| %>
-      <div class="card border-dark mb-3" style="width: 15rem;">
-        <div class="card-header">
-          <%= link_to(
-                fa_icon('cog'),
-                menu_path(menu)
-              ) %>
-          <%= link_to(
-                fa_icon('times'),
-                menu_path(menu),
-                method: :delete,
-                data: { confirm: 'Are you sure?' }
-              ) %>
+      <div class="card border-dark" style="width: calc(100%/3 - 1em)">
+        <div class="card-header pl-4  d-flex justify-content-between">
+          <div>
+            <h5 class="card-title"><%= menu.title %></h5>
+          </div>
+          <div>
+            <%= link_to(
+                  fa_icon('cog'),
+                  menu_path(menu)
+                ) %>
+            |
+            <%= link_to(
+                  fa_icon('times'),
+                  menu_path(menu),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }
+                ) %>
+          </div>
         </div>
         <img class="card-img-top" src="<%= menu.image %>" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title"><%= menu.title %></h5>
+
           <p class="card-text">
-            <%= menu.description %>
+            <%= truncate(menu.description, :length => 80) %>
           </p>
         </div>
       </div>

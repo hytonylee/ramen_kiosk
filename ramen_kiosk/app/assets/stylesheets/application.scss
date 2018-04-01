@@ -1,6 +1,18 @@
  @import "bootstrap";
  @import "simple_form";
 
+ // ====================== Header Style ===================
+
+a.header_link {
+    color: #232529;
+    text-decoration: none;
+}
+
+.navbar{
+  background-color: #232529;
+  border-bottom: solid thin crimson;
+}
+
 .Header {
   font-family: 'Rammetto One', cursive;
   background-color: white;
@@ -11,24 +23,54 @@
   justify-content: center;
 }
 
+ // ====================== Header Style ===================
+
 .content-box {
-  margin: 10px;
+  padding: 10px;
+  background-color:#F2F1F1;
+  background-image:
+  radial-gradient(circle at 100% 150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, white 10%, #F2F1F1 11%, #F2F1F1 23%, white 24%, white 30%, #F2F1F1 31%, #F2F1F1 43%, white 44%, white 50%, #F2F1F1 51%, #F2F1F1 63%, white 64%, white 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+
+  .card {
+
+    border: thin solid black;
+    min-height: 400px;
+    margin: 5px;
+
+    .card-header{
+      background: crimson;
+      justify-content: flex-end;
+      color: white;
+      border-bottom: solid black;
+      border-width: 1px;
+    }
+    a {
+      color: white;
+    }
+    a:hover{
+      color: grey;
+    }
+
+    .show-link{
+      text-align: center;
+      a {
+        color: crimson;
+      }
+      a:hover{
+        color: crimson;
+      }
+    }
+    .item-list{}
+  }
+
 }
 
-.card {
-  margin: 5px;
-
-  .card-header{
-    background: crimson;
-    justify-content: flex-end;
-  }
-  a {
-    color: white;
-  }
-  a:hover{
-    color: grey;
-  }
-}
+// ========================= NavSideBar Style ========================
 
 .navsidebar {
   justify-content: center;
@@ -43,11 +85,12 @@
   .NavButton {
     color: white;
     width: 100%;
-    background-color: #222529;
+    background-color: #232529;
     text-align: center;
     padding: 10px;
     border-radius: 5%;
     margin-bottom: 5px;
+    border: white solid 1px;
 
     a{
       color: white;
@@ -55,9 +98,7 @@
   }
 
   .NavButton:hover {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+
     background-color: white;
     border: 1px solid #222529;
     a {
@@ -67,13 +108,14 @@
     }
   }
 
-  .flash-message {
+// =========================== Flash/Notice/Alert Style ==============
+
+.flash-message {
   padding: 8px;
   color: darkolivegreen;
   background-color: palegreen;
   border-radius: 5px;
 }
-
 
 .has-error .help-block {
   color: red;

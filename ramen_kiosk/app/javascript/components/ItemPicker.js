@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Menu } from '../lib/requests';
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, Container } from 'reactstrap';
+  CardTitle, CardSubtitle, Button, Container, Media, Table } from 'reactstrap';
 import "../css/style.scss";
 import { Link } from "react-router-dom";
 

@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/plataformatec/simple_form.git
+  revision: 102b9eb16a31ecf3e3f974d282359b1236ab5346
+  specs:
+    simple_form (3.5.1)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -400,9 +408,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    simple_form (3.5.1)
-      actionpack (> 4, < 5.2)
-      activemodel (> 4, < 5.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -463,7 +468,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.1.5)
   rails-erd
-  simple_form
+  simple_form (~> 3.5.1)!
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

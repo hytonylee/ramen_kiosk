@@ -1,29 +1,34 @@
+<%= form_with(model: @menu, local: true) do |form| %>
+<% if @menu.errors.any? %>
+  <div id="error_explanation" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</strong>
 
-  <%= form_with(model: menu, local: true) do |form| %>
-    <% if menu.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+    <p>
+      <% menu.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </p>
 
-        <ul>
-        <% menu.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  <% end %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+<% end %>
+<% end %>
+
+<%= simple_form_for( @menu, html: { class: "form-group", multipart: true}) do |f| %>
+  <%= f.input :title, label: "Menu Title" %>
+  <%= f.input :description, as: :text, label: "Description" %>
+  <%= f.file_field :image, label: "Menu Image", class: "mb-3"%>
+  <%= f.input :display,
+          as: :radio_buttons,
+          default: true,
+          :checked => true
+
+  %>
+  <%= f.association :items, collection: Item.order(:item_name), label_method: :list_display,  input_html: {class: 'chosen-select'} %>
 
 
-
-
-
-
-  <%= simple_form_for @menu, html: {multipart: true} do |f| %>
-    <%= f.input :title, label: "Menu Title" %>
-    <%= f.input :description, label: "Menu Description" %>
-    <%= f.file_field :image, Label: "Menu Image"%>
-    <%= f.association :items, collection: Item.order(:item_name), label_method: :list_display,  input_html: {class: 'chosen-select'} %>
-    <%# byebug %>
-
-    <%= f.button :submit %>
-  <% end  %>
+  <%= f.button :submit, class:"btn btn-dark" %>
+<% end  %>

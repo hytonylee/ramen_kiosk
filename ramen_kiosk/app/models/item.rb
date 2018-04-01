@@ -11,14 +11,9 @@ class Item < ApplicationRecord
   validates :item_name, presence: true, uniqueness: {
     case_sensitive: false
   }
-  before_validation :downcase_name
 
   def list_display
-    "#{item_name} - #{item_price}"
+    "#{item_name} - $#{item_price}"
   end
 
-  private
-  def downcase_name
-    self.item_name.downcase!
-  end
 end
