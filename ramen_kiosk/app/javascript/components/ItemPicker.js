@@ -8,32 +8,26 @@ import "../css/style.scss";
 import { Link } from "react-router-dom";
 
 
+
+
 class ItemPicker extends Component {
   constructor(props) {
     super(props)
     this.state = {
       items:[],
-      orders: []
+      order:[]
     }
     this.addOrder = this.addOrder.bind(this);
   }
 
 
-  addOrder= (key) =>{
-    event.preventDefault();
-    console.log(this.props.data);
-
+  addOrder = key =>{
     console.log('button is click',key)
-
     const order = { ...this.state.order};
-    const itemId = event.currentTarget.id;
-    // console.log(event)
-    // console.log(itemId)
-
-    order.event = order.event +1 || 1;
-
-
-
+    order[key] = order[key] +1 || 1;
+    this.setState({
+      order: order
+    })
   }
 
 
@@ -43,7 +37,7 @@ class ItemPicker extends Component {
      .one(menuId)
      .then(
        menus => {
-         // console.log("menus", menus.items)
+         console.log("menus", menus.items)
          this.setState({
            items: menus.items
          })
@@ -55,13 +49,14 @@ class ItemPicker extends Component {
 
   render(){
     const { items } = this.state
-    console.log("items", items)
-    // console.log(items)
+    // console.log("items", items)
+
     return (
       <main className="ItemPicker">
         <Row>
           <Col xs="2">
             <LeftMenu />
+
           </Col>
           <Col>
             <div className="item-container">
@@ -83,7 +78,7 @@ class ItemPicker extends Component {
                                 <CardText className="items-description">{item.item_description}</CardText>
                                 <CardText className="items-description">$ {item.item_price}
 
-                                  <Button id={item.id} onClick={this.addOrder}>Click here</Button>
+                                  <Button id={item.id} onClick={() => addOrder(key)}>Click here</Button>
                                 </CardText>
                             </Col>
                         </Row>

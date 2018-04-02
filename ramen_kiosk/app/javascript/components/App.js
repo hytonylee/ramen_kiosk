@@ -10,6 +10,7 @@ import Header from './Header';
 import MenuPicker from './MenuPicker';
 import ItemPicker from './ItemPicker';
 import PageNotFound from './PageNotFound';
+import LeftMenu from './LeftMenu';
 
 
 
@@ -31,6 +32,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={MenuPicker} />
             <Route exact path="/:menuId/items" component={ItemPicker} />
+            <Route exact path="/:menuId/items" component={LeftMenu} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

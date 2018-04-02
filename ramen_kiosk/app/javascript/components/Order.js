@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Table } from 'reactstrap'
 
 class Order extends Component {
+  
 render(){
   return (
       <main className="Order">
