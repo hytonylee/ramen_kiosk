@@ -18,30 +18,30 @@ Header{
   }
 }
 
-.logo-circle {
-  font-weight: 900;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  background-color:#fff;
-  border:3px solid red;
-  height:50px;
-  width:50px;
-  border-radius:50%;
-  -moz-border-radius:50%;
-  -webkit-border-radius:50%;
-}
 
 /* Patron Menu Style */
+
+main {
+  margin-top: 5px;
+  padding: 10px;
+  background-color:#F2F1F1;
+  background-image:
+  radial-gradient(circle at 100% 150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, white 10%, #F2F1F1 11%, #F2F1F1 23%, white 24%, white 30%, #F2F1F1 31%, #F2F1F1 43%, white 44%, white 50%, #F2F1F1 51%, #F2F1F1 63%, white 64%, white 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+}
 
 .menu-container {
    display: flex;
    flex-wrap: wrap;
-   padding: 5px;
-
-
-
+   padding: 10px;
 
    .menu-card{
      width: calc(50% - 2 * 5px);
+     margin: 10px;
    }
 
    .menu-description{
@@ -56,46 +56,54 @@ Header{
   align-self: flex-start;
 }
 
-.menu-card.container {
-  margin-left:0px;
-  margin-right:0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  max-width: calc(50% - 2 * 5px);
-}
 
-a:hover {
-    color: red;
-}
-
-.NavButton {
-  background-color: #555555;
-  border: none;
-  border-radius: 2%;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 5px;
-  width: 100%;
-}
+// ===================   Item Page Style ========================
 
 
-.Nav-Selection{
-  padding: 20px;
-  .Nav-Select-Button{
+.item-container {
 
+  .CardHeader{
+    background-color: crimson;
+    padding-bottom: 0px;
+
+    .CardTitle{
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .items-card{
+    width: calc(100%);
+    margin-bottom: 5px;
+  }
+  .item-title-wrapper{
+    background-color: crimson;
   }
 }
 
 
 
-// ===================   Item Page Style ========================
+// ===================   LeftMenu Style ========================
 
-.items-card{
-  width: calc(50% - 2 * 5px);
+
+.col-2{
+  margin: 0px;
+  .LeftMenu{
+    padding: 0px;
+     .left-menu{
+       width: 100%;
+       margin-bottom: 10px;
+     }
+  }
+}
+
+
+// ==================== Order Style============================
+
+
+.Order {
+  background-color: crimson;
+  border: thin solid black;
 }
 
 
