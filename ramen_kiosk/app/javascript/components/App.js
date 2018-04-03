@@ -20,9 +20,16 @@ class App extends Component {
     order: {}
   }
 
-  addOrder = order => {
-
-  }
+  // addOrder(item) {
+  //   this.setState = state => ({
+  //   item:
+  //   [
+  //     id: item.id,
+  //     name: item_name,
+  //     price: item_price
+  //   ]
+  //   })
+  // }
 
 
   render() {
@@ -33,7 +40,6 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={MenuPicker} />
             <Route exact path="/:menuId/items" component={ItemPicker} />
-            <Route exact path="/:menuId/items" component={LeftMenu} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

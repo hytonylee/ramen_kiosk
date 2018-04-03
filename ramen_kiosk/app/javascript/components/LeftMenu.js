@@ -38,17 +38,17 @@ class LeftMenu extends Component {
             {
               menus && menus.map(
                 menu =>
-                  <Link to={"../"+menu.id+"/items"}>
+                  <Link to={"/"+menu.id+"/items"}>
                     <div key={menu.id} onClick={this.selectMenu}>
                       <Card key={menu.id} className="left-menu">
                         <CardHeader className="CardHeader">
-                          <CardTitle class="CardTitle">{menu.title}</CardTitle>
+                          <CardTitle className="CardTitle">{menu.title}</CardTitle>
                         </CardHeader>
                         <div className="image-placeholder">
                           <CardImg className="card-image" top width="100%" src={menu.image.large.url} alt="Card image cap" />
                         </div>
-                        <div class="overlay">
-                          <div class="text">Select Menu</div>
+                        <div className="overlay">
+                          <div className="text">Select Menu</div>
                         </div>
                       </Card>
                     </div>

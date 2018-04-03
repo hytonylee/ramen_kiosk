@@ -21,15 +21,51 @@ class ItemPicker extends Component {
   }
 
 
-  addOrder = key =>{
-    console.log('button is click',key)
-    const order = { ...this.state.order};
-    order[key] = order[key] +1 || 1;
-    this.setState({
-      order: order
-    })
+  // addOrder = key => {
+  //   console.log('button is click',key)
+  //   const order = { ...this.state.order};
+  //   order[key] = order[key] +1 || 1;
+  //   this.setState({
+  //     order: order
+  //   })
+  // }
+
+  addOrder(item) {
+    this.setState(state => ({
+      order: [
+        ...this.state.order,
+        {
+          id: item.id,
+          name: item.item_name,
+          price: item.item_price
+        }
+      ],
+    }))
+
+
+    console.log('button is click',item)
+    // const order = { ...this.state.order};
+    // order[item] = order[item] +1 || 1;
+    // console.log(order);
+    // this.setState({
+    //   order: order
+    // })
   }
 
+  // nextId() {
+	// 	this.uniqueId = this.uniqueId || 0
+	// 	return this.uniqueId++
+	// }
+
+  // addOrder(item) {
+  //   console.log('button is click',item)
+  //   const order = { ...this.state.order};
+  //   order[item] = order[item] +1 || 1;
+  //   console.log(order);
+  //   this.setState({
+  //     order: order
+  //   })
+  // }
 
   componentDidMount() {
     const menuId = this.props.match.params.menuId;
@@ -37,7 +73,7 @@ class ItemPicker extends Component {
      .one(menuId)
      .then(
        menus => {
-         console.log("menus", menus.items)
+         // console.log("menus", menus.items)
          this.setState({
            items: menus.items
          })
@@ -45,8 +81,11 @@ class ItemPicker extends Component {
      )
   }
 
-  handleClick = () => {
-    this.props.addOrder(this.props.key);
+  handleClick(e, data) {
+    this.addOrder(data);
+    console.log(data.id)
+    console.log(data.item_name)
+    console.log(data.item_price)
   }
 
   render(){
@@ -75,7 +114,7 @@ class ItemPicker extends Component {
                             </Row>
                          </CardTitle>
                         </CardHeader>
-                        <a id={item.id} onClick={this.handleClick}>
+                        <a id={item.id} value={item.id} onClick={((e) => this.handleClick(e, item))}>
                           <Row className="item-content">
                             <Col sm="3">
                               <div className="image-placeholder">
@@ -84,13 +123,11 @@ class ItemPicker extends Component {
                             </Col>
                             <Col sm="9">
 
-                              <CardText className="items-description">{item.item_description}
-                                {/* <Button id={item.id} onClick={this.handleClick}>Click here</Button> */}
-                              </CardText>
+                              <CardText className="items-description">{item.item_description}</CardText>
                             </Col>
                           </Row>
-                          <div class="overlay">
-                            <div class="text">Add Item to Order</div>
+                          <div className="overlay">
+                            <div className="text">Add Item to Order</div>
                           </div>
                         </a>
                       </Card>

@@ -267,8 +267,13 @@ main.Order {
     }
   background-color: white;
   border: thin solid black;
-    table{
+    .order-data{
       background-color: white;
+      div{
+        padding: 2px;
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
