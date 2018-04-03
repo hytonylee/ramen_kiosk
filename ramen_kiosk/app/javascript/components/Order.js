@@ -1,24 +1,18 @@
 import React, { Component } from 'react'
-import { Table } from 'reactstrap'
+import { Table, Card, CardHeader, CardTitle } from 'reactstrap'
 
 class Order extends Component {
-  
+
 render(){
   return (
       <main className="Order">
-          <Table>
-          <thead>
-            <tr>
-              <th>Order</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>item name</td>
-              <td>item price  </td>
-            </tr>
-          </tbody>
-        </Table>
+        <Card className="order-card">
+          <CardHeader className="order-header">
+            <CardTitle className="order-title">Order</CardTitle>
+          </CardHeader>
+            <Table>
+            </Table>
+        </Card>
       </main>
     )
   }

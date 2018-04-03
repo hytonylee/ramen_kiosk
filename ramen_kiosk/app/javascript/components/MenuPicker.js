@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Menu } from '../lib/requests';
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, Container } from 'reactstrap';
+import { Card, CardHeader, CardTitle, CardImg, CardText, CardBody,
+        Button, Container } from 'reactstrap';
 import "../css/style.scss";
 import { Link } from "react-router-dom";
 
@@ -40,19 +40,26 @@ class MenuPicker extends Component {
               menus && menus.map(
                 menu =>
                   <Container key={menu.id} className="menu-card">
-                    <Card>
-                      <CardImg top width="30%" src={menu.image.large.url} alt="Card image cap" />
+                    <Link to={menu.id+"/items"}>
+                      <a id={menu.id} onClick={this.selectMenu}>
+                        <Card>
+                          <CardHeader className="CardHeader">
+                              <CardTitle className="CardTitle">{menu.title}</CardTitle>
+                          </CardHeader>
+                          <div className="image-placeholder">
+                            <CardImg className="card-image" top width="30%" src={menu.image.large.url} alt="Card image cap" />
+                          </div>
 
-                      <CardBody>
 
-                        <CardTitle>{menu.title}</CardTitle>
-                        <CardText className="menu-description">{menu.description}</CardText>
-                        <Link to={menu.id+"/items"}>
-                          <Button id={menu.id} onClick={this.selectMenu}>Select Item</Button>
-                        </Link>
-
-                      </CardBody>
-                    </Card>
+                          <CardBody>
+                            <CardText className="menu-description">{menu.description}</CardText>
+                          </CardBody>
+                          <div class="overlay">
+                            <div class="text">Select Menu</div>
+                          </div>
+                        </Card>
+                      </a>
+                    </Link>
                   </Container>
               )
             }

@@ -1,34 +1,22 @@
 import React, { Component } from 'react';
-import LeftMenu from './LeftMenu';
 import { Menu } from '../lib/requests';
-import Order from './Order';
 import { Card, CardImg, CardText, CardBody,CardHeader,
   CardTitle, CardSubtitle, Button, Container, Media, Row, Col} from 'reactstrap';
 import "../css/style.scss";
 import { Link } from "react-router-dom";
 
 
-
-
-class ItemPicker extends Component {
+class Item extends Component {
   constructor(props) {
     super(props)
     this.state = {
       items:[],
       order:[]
     }
-    this.addOrder = this.addOrder.bind(this);
   }
 
 
-  addOrder = key =>{
-    console.log('button is click',key)
-    const order = { ...this.state.order};
-    order[key] = order[key] +1 || 1;
-    this.setState({
-      order: order
-    })
-  }
+
 
 
   componentDidMount() {
@@ -45,23 +33,15 @@ class ItemPicker extends Component {
      )
   }
 
-  handleClick = () => {
-    this.props.addOrder(this.props.key);
-  }
+
 
   render(){
     const { items } = this.state
-    // console.log("items", items)
+    console.log("items", items)
+    console.log("obj key", )
 
     return (
-      <main className="ItemPicker">
-        <Row>
-          <Col xs="2">
-            <LeftMenu />
-
-          </Col>
-          <Col>
-            <div className="item-container">
+      <main className="Item">
               {
                 items && items.map(
                   item =>
@@ -80,7 +60,7 @@ class ItemPicker extends Component {
                                 <CardText className="items-description">{item.item_description}</CardText>
                                 <CardText className="items-description">$ {item.item_price}
 
-                                  <Button id={item.id} onClick={this.handleClick}>Click here</Button>
+                                  <Button id={item.id} onClick={this.addOrder}> Click here</Button>
                                 </CardText>
                             </Col>
                         </Row>
@@ -88,19 +68,10 @@ class ItemPicker extends Component {
                     </Container>
                 )
               }
-            </div>
-          </Col>
-          <Col xs="3">
-            <Order
-              className="order-list"
-              items={this.state.items}
-              order={this.state.order}
-              />
-          </Col>
-        </Row>
+
       </main>
     )
   }
 }
 
-export default ItemPicker;
+export default Item;

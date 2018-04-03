@@ -23,7 +23,7 @@ Header{
 
 main {
   margin-top: 5px;
-  padding: 10px;
+  padding: 5px;
   background-color:#F2F1F1;
   background-image:
   radial-gradient(circle at 100% 150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
@@ -37,11 +37,41 @@ main {
 .menu-container {
    display: flex;
    flex-wrap: wrap;
-   padding: 10px;
+   padding: 5px;
+   position: relative;
+
+   .CardHeader{
+     background-color: crimson;
+     padding-bottom: 0px;
+   }
+   .CardTitle{
+     color: white;
+     font-weight: bold;
+   }
+
+   .image-placeholder{
+     width:100%;
+     padding-top: 80%;
+     // background-color: black;
+     overflow: hidden;
+     position: relative;
+   }
+
+   .card-image{
+     display: block;
+     min-width: 100%;
+     min-height: 100%;
+     margin: auto;
+     position: absolute;
+     top: -100%;
+     right: -100%;
+     bottom: -100%;
+     left: -100%;
+   }
 
    .menu-card{
      width: calc(50% - 2 * 5px);
-     margin: 10px;
+     margin: 5px;
    }
 
    .menu-description{
@@ -50,10 +80,47 @@ main {
        -webkit-line-clamp: 3;
        -webkit-box-orient: vertical;
    }
+
+  a {
+    color:black;
+  }
+  a:hover{
+    color:black;
+    text-decoration:none;
+  }
  }
 
 .menu-container:last-child {
   align-self: flex-start;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #222529;
+}
+
+.container:hover .overlay {
+  opacity: 0.9;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 
@@ -93,6 +160,15 @@ main {
      .left-menu{
        width: 100%;
        margin-bottom: 10px;
+       .CardHeader{
+         background-color:#222529;
+         padding-bottom: 0px;
+         border-bottom: thin solid crimson;
+       }
+       .card-title{
+         color: white;
+         font-weight: bold;
+       }
      }
   }
 }
@@ -101,9 +177,24 @@ main {
 // ==================== Order Style============================
 
 
-.Order {
-  background-color: crimson;
+main.Order {
+  padding:0px;
+  .order-card{
+    .order-header{
+      padding-bottom: 0px;
+      background-color:#222529;
+      margin-bottom: 0px;
+      border-bottom: thin solid crimson;
+      .order-title{
+        color:white;
+      }
+    }
+  background-color: white;
   border: thin solid black;
+    table{
+      background-color: white;
+    }
+  }
 }
 
 
