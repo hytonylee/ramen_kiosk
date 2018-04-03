@@ -1,19 +1,21 @@
 <div class="row content-box">
-  <div class="col-10 d-flex flex-wrap">
+  <div class="col-10 d-flex justify-content-center">
 
-    <%= form_for :session, url: session_path do |f| %>
-      <div>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </div>
+    <div class="sign_in d-flex justify-content-center align-items-center">
+      <%= simple_form_for :session, url: session_path do |f| %>
+        <div>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
 
-      <div>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-      </div>
+        <div>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
 
-      <%= f.submit 'Submit' %>
+        <%= f.submit 'Sign In' %>
     <% end %>
+    </div>
   </div>
   <div class="col-2 navsidebar">
     <%= render 'menus/navside'%>

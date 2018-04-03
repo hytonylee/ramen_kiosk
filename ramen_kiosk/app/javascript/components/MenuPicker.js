@@ -52,11 +52,8 @@ class MenuPicker extends Component {
 
 
                           <CardBody>
-                            <CardText className="menu-description">{menu.description}</CardText>
+                            <CardText className="menu-descriptio">{menu.description}</CardText>
                           </CardBody>
-                          <div class="overlay">
-                            <div class="text">Select Menu</div>
-                          </div>
                         </Card>
                       </a>
                     </Link>

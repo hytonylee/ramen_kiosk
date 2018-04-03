@@ -70,7 +70,7 @@ main {
    }
 
    .menu-card{
-     width: calc(50% - 2 * 5px);
+     width: calc(100%/3 - 2 * 5px);
      margin: 5px;
    }
 
@@ -109,7 +109,7 @@ main {
 }
 
 .container:hover .overlay {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .text {
@@ -124,10 +124,14 @@ main {
 }
 
 
+
 // ===================   Item Page Style ========================
 
 
 .item-container {
+  padding-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
 
   .CardHeader{
     background-color: crimson;
@@ -139,12 +143,59 @@ main {
     }
   }
 
+  .item-content{
+    padding: 20px;
+    .image-placeholder{
+      width:100%;
+      padding-top: 80%;
+      // background-color: black;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-image{
+      display: block;
+      min-width: 100%;
+      min-height: 100%;
+      margin: auto;
+      position: absolute;
+      top: -100%;
+      right: -100%;
+      bottom: -100%;
+      left: -100%;
+    }
+  }
   .items-card{
     width: calc(100%);
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
-  .item-title-wrapper{
-    background-color: crimson;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: DarkRed;
+  }
+
+  .container:hover .overlay {
+    opacity: 0.7;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
   }
 }
 
@@ -157,6 +208,12 @@ main {
   margin: 0px;
   .LeftMenu{
     padding: 0px;
+
+    a:hover{
+      text-decoration: underline;
+      text-decoration-color: red;
+    }
+
      .left-menu{
        width: 100%;
        margin-bottom: 10px;
@@ -168,6 +225,25 @@ main {
        .card-title{
          color: white;
          font-weight: bold;
+       }
+       .image-placeholder{
+         width:100%;
+         padding-top: 80%;
+         // background-color: black;
+         overflow: hidden;
+         position: relative;
+       }
+
+       .card-image{
+         display: block;
+         min-width: 100%;
+         min-height: 100%;
+         margin: auto;
+         position: absolute;
+         top: -100%;
+         right: -100%;
+         bottom: -100%;
+         left: -100%;
        }
      }
   }

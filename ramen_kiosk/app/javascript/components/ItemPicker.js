@@ -68,22 +68,31 @@ class ItemPicker extends Component {
                     <Container key={item.id} className="items-card" >
                       <Card>
                         <CardHeader className="CardHeader">
-                          <CardTitle className="CardTitle">{item.item_name}</CardTitle>
+                          <CardTitle className="CardTitle">
+                            <Row>
+                            <Col sm="3">{item.item_name}</Col>
+                            <Col sm="9">$ {item.item_price}</Col>
+                            </Row>
+                         </CardTitle>
                         </CardHeader>
-                        <Row>
-
+                        <a id={item.id} onClick={this.handleClick}>
+                          <Row className="item-content">
                             <Col sm="3">
-                              <CardImg src={item.image.large.url} alt="Card image cap" />
+                              <div className="image-placeholder">
+                                <CardImg className="card-image" src={item.image.large.url} alt="Card image cap" />
+                              </div>
                             </Col>
                             <Col sm="9">
 
-                                <CardText className="items-description">{item.item_description}</CardText>
-                                <CardText className="items-description">$ {item.item_price}
-
-                                  <Button id={item.id} onClick={this.handleClick}>Click here</Button>
-                                </CardText>
+                              <CardText className="items-description">{item.item_description}
+                                {/* <Button id={item.id} onClick={this.handleClick}>Click here</Button> */}
+                              </CardText>
                             </Col>
-                        </Row>
+                          </Row>
+                          <div class="overlay">
+                            <div class="text">Add Item to Order</div>
+                          </div>
+                        </a>
                       </Card>
                     </Container>
                 )

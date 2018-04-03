@@ -65,7 +65,36 @@ a.header_link {
         color: crimson;
       }
     }
-    .item-list{}
+    .item-list{
+
+        a {
+          color: crimson;
+        }
+        a:hover{
+          color: crimson;
+        }
+      
+    }
+
+    .image-placeholder{
+      width:100%;
+      padding-top: 80%;
+      // background-color: black;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-image{
+      display: block;
+      min-width: 100%;
+      min-height: 100%;
+      margin: auto;
+      position: absolute;
+      top: -100%;
+      right: -100%;
+      bottom: -100%;
+      left: -100%;
+    }
   }
 
 }
@@ -125,4 +154,15 @@ a.header_link {
 .list-group {
   margin-top: 21px;
   width: 90%;
+}
+
+
+
+
+//=========================== Sign in Page =============
+
+.sign_in{
+  background-color: white;
+  width: 80%;
+  height: 80%;
 }
