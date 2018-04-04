@@ -277,9 +277,11 @@ main.Order {
   background-color: white;
   border: thin solid black;
     .order-data{
+      padding-left: 0px;
+      margin-left: 0px;
       background-color: white;
       div{
-        padding: 2px;
+        padding: 5px;
         display: flex;
         align-items: center;
       }

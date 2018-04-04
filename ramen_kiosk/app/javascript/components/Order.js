@@ -9,7 +9,13 @@ class Order extends Component {
   }
 
   render() {
-    const orders = this.props.order
+    const orders = this.props.order;
+    console.log(orders);
+
+    const total = orders.reduce( function(cnt,order){ return cnt + parseFloat(order.price); }, 0);
+
+
+
 
     return (
       <main className="Order">
@@ -18,19 +24,17 @@ class Order extends Component {
             <CardTitle className="order-title">Order</CardTitle>
           </CardHeader>
             <div className="order-data">
-              <ul>
-              {orders.map((order,index) => (
-                  <li key={order.id} value={index}>
-                    order:  {order.name}
-                    <br />
-                    value: {order.price}
-                  </li>
 
+              {orders.map((order,index) => (
+                  <div key={order.index} value={index}>
+                    <strong>{order.name}</strong>${order.price}
+                    <hr />
+                  </div>
                   )
                 )}
-              </ul>
+
               <hr />
-              <strong>Total</strong>
+              <strong>Total: ${total}</strong>
             <div>
               <Button className="btn btn-secondary btn-lg btn-block">Checkout</Button>
             </div>
