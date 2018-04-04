@@ -12,13 +12,9 @@ class MenuPicker extends Component {
     this.state = {
       menus:[],
     }
-    console.log("MenuPicker", this.state);
+    // console.log("MenuPicker", this.state);
   }
 
-
-  selectMenu(event) {
-    const menuId = event.currentTarget.id;
-  }
 
   componentDidMount() {
     Menu
@@ -43,8 +39,8 @@ class MenuPicker extends Component {
               menus && menus.map(
                 menu =>
                   <Container key={menu.id} className="menu-card">
-                    <Link to={menu.id+"/items"}>
-                      <a id={menu.id} onClick={this.selectMenu}>
+                    <Link to={menu.id+"/items"} id={menu.id} onClick={this.props.selectMenu}>
+
                         <Card>
                           <CardHeader className="CardHeader">
                               <CardTitle className="CardTitle">{menu.title}</CardTitle>
@@ -59,7 +55,7 @@ class MenuPicker extends Component {
                             <CardText className="menu-description">{menu.description}</CardText>
                           </CardBody>
                         </Card>
-                      </a>
+                  
                     </Link>
                   </Container>
               )

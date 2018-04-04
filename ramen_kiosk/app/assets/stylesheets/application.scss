@@ -1,6 +1,22 @@
  @import "bootstrap";
  @import "simple_form";
 
+// ===================== Body Style =====================
+
+body{
+  background-color:#F2F1F1;
+  background-image:
+  radial-gradient(circle at 100% 150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, white 10%, #F2F1F1 11%, #F2F1F1 23%, white 24%, white 30%, #F2F1F1 31%, #F2F1F1 43%, white 44%, white 50%, #F2F1F1 51%, #F2F1F1 63%, white 64%, white 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+}
+
+
+
+
  // ====================== Header Style ===================
 
 a.header_link {
@@ -27,14 +43,6 @@ a.header_link {
 
 .content-box {
   padding: 10px;
-  background-color:#F2F1F1;
-  background-image:
-  radial-gradient(circle at 100% 150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
-  radial-gradient(circle at 0    150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
-  radial-gradient(circle at 50%  100%, white 10%, #F2F1F1 11%, #F2F1F1 23%, white 24%, white 30%, #F2F1F1 31%, #F2F1F1 43%, white 44%, white 50%, #F2F1F1 51%, #F2F1F1 63%, white 64%, white 71%, transparent 71%, transparent),
-  radial-gradient(circle at 100% 50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent),
-  radial-gradient(circle at 0    50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent);
-  background-size:100px 50px;
 
   .card {
 
@@ -73,7 +81,7 @@ a.header_link {
         a:hover{
           color: crimson;
         }
-      
+
     }
 
     .image-placeholder{

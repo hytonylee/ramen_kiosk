@@ -16,9 +16,9 @@ class ItemPicker extends Component {
     this.state = {
       items:[],
       order:[]
+
     }
     this.addOrder = this.addOrder.bind(this);
-    console.log("itemPicker", this.props);
   }
 
 
@@ -46,20 +46,7 @@ class ItemPicker extends Component {
 
 
 
-  componentDidMount() {
-    console.log('MENU', this.props)
-    const menuId = this.props.match.params.menuId;
-    Menu
-     .one(menuId)
-     .then(
-       menus => {
 
-         this.setState({
-           items: menus.items
-         })
-       }
-     )
-  }
 
   handleClick(e, data) {
     this.addOrder(data);
@@ -68,15 +55,13 @@ class ItemPicker extends Component {
 
 
   render(){
-
-    const { items } = this.state
-
+    const { items } = this.props
 
     return (
       <main className="ItemPicker">
         <Row>
           <Col xs="2">
-            <LeftMenu />
+            <LeftMenu menus={this.props.menus} selectMenu={this.props.selectMenu}/>
           </Col>
           <Col>
             <div className="item-container">

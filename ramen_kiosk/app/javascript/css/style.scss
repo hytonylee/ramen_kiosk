@@ -1,6 +1,10 @@
 /* Header Style  */
 
+
+
 Header{
+  background-color: white;
+  margin-top:0px;
 
   .top{
     font-family: 'Rammetto One', cursive;
@@ -21,9 +25,8 @@ Header{
 
 /* Patron Menu Style */
 
-main {
-  margin-top: 5px;
-  padding: 5px;
+body{
+  margin-top:0px;
   background-color:#F2F1F1;
   background-image:
   radial-gradient(circle at 100% 150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
@@ -32,6 +35,12 @@ main {
   radial-gradient(circle at 100% 50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent),
   radial-gradient(circle at 0    50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent);
   background-size:100px 50px;
+}
+
+main {
+  margin-top: 5px;
+  padding: 5px;
+
 }
 
 .menu-container {
