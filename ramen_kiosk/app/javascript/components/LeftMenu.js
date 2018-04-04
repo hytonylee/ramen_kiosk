@@ -12,9 +12,11 @@ class LeftMenu extends Component {
     this.state = {
       menus:[],
     }
+    console.log("this state", this.state);
   }
 
   selectMenu(event) {
+    // debugger
     const menuId = event.currentTarget.id;
   }
 
@@ -32,14 +34,15 @@ class LeftMenu extends Component {
 
 
   render(){
-    const { menus } = this.state
+    const { menus } = this.state;
+    console.log(this.props);
     return (
       <main className="LeftMenu">
             {
               menus && menus.map(
                 menu =>
-                  <Link to={"/"+menu.id+"/items"}>
-                    <div key={menu.id} onClick={this.selectMenu}>
+                  <Link to={{pathname:`/${menu.id}/items`, menu: menu}} >
+                    <div key={menu.id} onClick={this.props.selectMenu}>
                       <Card key={menu.id} className="left-menu">
                         <CardHeader className="CardHeader">
                           <CardTitle className="CardTitle">{menu.title}</CardTitle>
@@ -47,9 +50,7 @@ class LeftMenu extends Component {
                         <div className="image-placeholder">
                           <CardImg className="card-image" top width="100%" src={menu.image.large.url} alt="Card image cap" />
                         </div>
-                        <div className="overlay">
-                          <div className="text">Select Menu</div>
-                        </div>
+
                       </Card>
                     </div>
                   </Link>

@@ -12,7 +12,9 @@ class MenuPicker extends Component {
     this.state = {
       menus:[],
     }
+    console.log("MenuPicker", this.state);
   }
+
 
   selectMenu(event) {
     const menuId = event.currentTarget.id;
@@ -33,6 +35,7 @@ class MenuPicker extends Component {
 
   render(){
     const { menus } = this.state
+    console.log({menus})
     return (
       <main className="MenuPicker">
           <div className="menu-container">
@@ -49,10 +52,11 @@ class MenuPicker extends Component {
                           <div className="image-placeholder">
                             <CardImg className="card-image" top width="30%" src={menu.image.large.url} alt="Card image cap" />
                           </div>
-
-
+                          <div className="overlay">
+                            <div className="text">Select Menu</div>
+                          </div>
                           <CardBody>
-                            <CardText className="menu-descriptio">{menu.description}</CardText>
+                            <CardText className="menu-description">{menu.description}</CardText>
                           </CardBody>
                         </Card>
                       </a>

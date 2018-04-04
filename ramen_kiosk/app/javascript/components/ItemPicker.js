@@ -18,19 +18,13 @@ class ItemPicker extends Component {
       order:[]
     }
     this.addOrder = this.addOrder.bind(this);
+    console.log("itemPicker", this.props);
   }
 
 
-  // addOrder = key => {
-  //   console.log('button is click',key)
-  //   const order = { ...this.state.order};
-  //   order[key] = order[key] +1 || 1;
-  //   this.setState({
-  //     order: order
-  //   })
-  // }
 
   addOrder(item) {
+    // order[key] = order[key] + 1 || 1;
     this.setState(state => ({
       order: [
         ...this.state.order,
@@ -42,38 +36,24 @@ class ItemPicker extends Component {
       ],
     }))
 
-
-    console.log('button is click',item)
-    // const order = { ...this.state.order};
-    // order[item] = order[item] +1 || 1;
-    // console.log(order);
-    // this.setState({
-    //   order: order
-    // })
   }
 
-  // nextId() {
-	// 	this.uniqueId = this.uniqueId || 0
-	// 	return this.uniqueId++
-	// }
+  removeOrder(item){
+    const order = { ...this.state.order };
+    delete order[item];
+    this.setState({ order });
+  };
 
-  // addOrder(item) {
-  //   console.log('button is click',item)
-  //   const order = { ...this.state.order};
-  //   order[item] = order[item] +1 || 1;
-  //   console.log(order);
-  //   this.setState({
-  //     order: order
-  //   })
-  // }
+
 
   componentDidMount() {
+    console.log('MENU', this.props)
     const menuId = this.props.match.params.menuId;
     Menu
      .one(menuId)
      .then(
        menus => {
-         // console.log("menus", menus.items)
+
          this.setState({
            items: menus.items
          })
@@ -83,21 +63,20 @@ class ItemPicker extends Component {
 
   handleClick(e, data) {
     this.addOrder(data);
-    console.log(data.id)
-    console.log(data.item_name)
-    console.log(data.item_price)
+
   }
 
+
   render(){
+
     const { items } = this.state
-    // console.log("items", items)
+
 
     return (
       <main className="ItemPicker">
         <Row>
           <Col xs="2">
             <LeftMenu />
-
           </Col>
           <Col>
             <div className="item-container">
@@ -141,6 +120,7 @@ class ItemPicker extends Component {
               className="order-list"
               items={this.state.items}
               order={this.state.order}
+              removeOrder={this.removeOrder}
               />
           </Col>
         </Row>

@@ -11,25 +11,12 @@ import MenuPicker from './MenuPicker';
 import ItemPicker from './ItemPicker';
 import PageNotFound from './PageNotFound';
 import LeftMenu from './LeftMenu';
-import Item from './Item';
-
 
 
 class App extends Component {
   state ={
     order: {}
   }
-
-  // addOrder(item) {
-  //   this.setState = state => ({
-  //   item:
-  //   [
-  //     id: item.id,
-  //     name: item_name,
-  //     price: item_price
-  //   ]
-  //   })
-  // }
 
 
   render() {
@@ -40,6 +27,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={MenuPicker} />
             <Route exact path="/:menuId/items" component={ItemPicker} />
+            {/* <Route exact path="/:menuId/items" component={LeftMenu} /> */}
             <Route component={PageNotFound} />
           </Switch>
         </div>
