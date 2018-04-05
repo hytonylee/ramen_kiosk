@@ -17,7 +17,8 @@ import {
   Col
 } from "reactstrap";
 import "../css/style.scss";
-import { Link } from "react-router-dom";
+import ReviewOrder from './ReviewOrder'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class ItemPicker extends Component {
   constructor(props) {
@@ -42,9 +43,6 @@ class ItemPicker extends Component {
       ]
     }));
   }
-
-
-
 
   removeOrder(index) {
     const order = this.state.order;
@@ -117,12 +115,19 @@ class ItemPicker extends Component {
             </div>
           </Col>
           <Col xs="3">
-            <Order
-              className="order-list"
-              items={this.state.items}
-              order={this.state.order}
-              removeOrder={this.removeOrder}
-            />
+            <Switch>
+              <Order
+                className="order-list"
+                items={this.state.items}
+                order={this.state.order}
+                removeOrder={this.removeOrder}
+              />
+              <ReviewOrder
+                className="review-order"
+                items={this.state.items}
+                order={this.state.order}
+              />
+            </Switch>
           </Col>
         </Row>
       </main>

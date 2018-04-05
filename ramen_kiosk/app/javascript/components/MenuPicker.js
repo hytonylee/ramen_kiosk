@@ -19,7 +19,6 @@ class MenuPicker extends Component {
     this.state = {
       menus: []
     };
-    // console.log("MenuPicker", this.state);
   }
 
   componentDidMount() {

@@ -292,6 +292,13 @@ main.Order {
       padding: 5px;
       display: flex;
       align-items: center;
+      a{
+        color:white;
+      }
+      a:hover{
+        color:white;
+        text-decoration: none;
+      }
     }
   }
 }

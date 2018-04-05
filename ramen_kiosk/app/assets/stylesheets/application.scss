@@ -104,6 +104,18 @@ a.header_link {
       left: -100%;
     }
   }
+  .menu-item-row{
+    padding-right:0;
+    margin-right:0px;
+  }
+  .menu-item-container{
+    padding:0px;
+    margin:0px;
+  }
+  .menu-item-card {
+    width:calc(100%/3 - 1em);
+    margin:2px;
+  }
 
 }
 

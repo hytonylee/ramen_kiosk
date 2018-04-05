@@ -8,6 +8,7 @@ import MenuPicker from "./MenuPicker";
 import ItemPicker from "./ItemPicker";
 import PageNotFound from "./PageNotFound";
 import LeftMenu from "./LeftMenu";
+import ReviewOrder from "./ReviewOrder";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +38,6 @@ class App extends Component {
 
   selectMenu(event) {
     const menuId = event.currentTarget.getAttribute("index");
-    console.log(menuId);
     Menu.all().then(menus => {
       this.setState({
         menus: menus.filter(menu => menu.display)
@@ -80,7 +80,7 @@ class App extends Component {
                 />
               )}
             />
-            {/* <Route exact path="/:menuId/items" component={LeftMenu} /> */}
+            <Route exact path="/:menuId/review" component={ReviewOrder} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

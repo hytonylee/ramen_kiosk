@@ -43,20 +43,20 @@ class Order extends Component {
             <tr>
               <td />
               <td>
-                <strong>Sub Total</strong>
+                <small><strong>Sub Total</strong></small>
                 <br />
-                <strong>Tax</strong>
+                <small><strong>Tax</strong></small>
                 <br />
                 <strong>Total</strong>
               </td>
               <td>
               </td>
               <td>
-                {subTotal}
+                <small>$ {subTotal}</small>
                 <br />
-                {tax}
-                <br />
-                {total}
+                <small>$ {tax}</small>
+                <hr />
+                $ {total}
               </td>
             </tr>
 
