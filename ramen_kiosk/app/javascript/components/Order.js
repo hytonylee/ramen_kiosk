@@ -1,21 +1,23 @@
-import React, { Component } from 'react'
-import { Table, Card, CardHeader, CardTitle, Button } from 'reactstrap';
+import React, { Component } from "react";
+import { Table, Card, CardHeader, CardTitle, Button } from "reactstrap";
 // import { formatPrice } from './helpers';
 import "../css/style.scss";
 
 class Order extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
   }
 
   render() {
     const orders = this.props.order;
-    console.log(orders);
-
-    const total = orders.reduce( function(cnt,order){ return cnt + parseFloat(order.price); }, 0);
-
-
-
+    console.log(orders)
+    const subTotal = orders
+      .reduce(function(cnt, order) {
+        return cnt + parseFloat(order.price);
+      }, 0)
+      .toFixed(2);
+    const tax = parseFloat(subTotal * 0.05).toFixed(2);
+    const total = +subTotal + +tax;
 
     return (
       <main className="Order">
@@ -23,28 +25,51 @@ class Order extends Component {
           <CardHeader className="order-header">
             <CardTitle className="order-title">Order</CardTitle>
           </CardHeader>
-            <div className="order-data">
 
-              {orders.map((order,index) => (
-                  <div key={order.index} value={index}>
-                    <strong>{order.name}</strong>${order.price}
-                    <hr />
-                  </div>
-                  )
-                )}
+          <Table striped className="order-data">
+            {orders.map((order, index) => (
+              <tbody>
+              <tr key={order.index} value={index}>
+                <td className="order-dot"> -</td>
+                <td>
+                  <strong>{order.name}</strong>
+                </td>
+                <td>${order.price}</td>
+                <td className="order-dot"><button className="btn btn--danger btn-sm" onClick={() => this.props.removeOrder(index, order)}>Remove
+                  </button></td>
+              </tr>
+              </tbody>
+            ))}
+            <tr>
+              <td />
+              <td>
+                <strong>Sub Total</strong>
+                <br />
+                <strong>Tax</strong>
+                <br />
+                <strong>Total</strong>
+              </td>
+              <td>
+              </td>
+              <td>
+                {subTotal}
+                <br />
+                {tax}
+                <br />
+                {total}
+              </td>
+            </tr>
 
-              <hr />
-              <strong>Total: ${total}</strong>
-            <div>
-              <Button className="btn btn-secondary btn-lg btn-block">Checkout</Button>
-            </div>
+          </Table>
+          <div className="order-button">
+            <Button className="btn btn-secondary btn-lg btn-block">
+              Checkout
+            </Button>
           </div>
         </Card>
       </main>
-    )
+    );
   }
 }
-
-
 
 export default Order;

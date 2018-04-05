@@ -274,17 +274,24 @@ main.Order {
         color:white;
       }
     }
+  tr{
+    border-bottom: think solid lightgrey;
+  }
   background-color: white;
   border: thin solid black;
     .order-data{
       padding-left: 0px;
       margin-left: 0px;
       background-color: white;
-      div{
-        padding: 5px;
-        display: flex;
-        align-items: center;
+      .order-dot{
+        color: crimson;
+        font-weight: bold;
       }
+    }
+    .order-button{
+      padding: 5px;
+      display: flex;
+      align-items: center;
     }
   }
 }
