@@ -310,3 +310,27 @@ main.Order {
   margin-top: 100px;
   text-align: center;
 }
+
+
+// ==================== Review Order =====================
+
+
+.ReviewOrder {
+   display: flex;
+   flex-wrap: wrap;
+   padding: 5px;
+   position: relative;
+   text-align: center;
+
+   .CardHeader{
+     background-color: crimson;
+     padding-bottom: 0px;
+   }
+   .CardTitle{
+     color: white;
+     font-weight: bold;
+   }
+   .CardText{
+     font-size: 12;
+   }
+}

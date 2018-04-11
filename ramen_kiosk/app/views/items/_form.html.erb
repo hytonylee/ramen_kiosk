@@ -1,8 +1,8 @@
 <% if @item.errors.any? %>
   <div id="error_explanation" class="alert alert-warning alert-dismissible fade show">
-    <strong><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</strong>
+    <strong><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</strong>
 
-    <% item.errors.full_messages.each do |message| %>
+    <% @item.errors.full_messages.each do |message| %>
       <p><%= message %></p>
     <% end %>
 

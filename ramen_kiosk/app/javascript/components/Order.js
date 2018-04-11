@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table, Card, CardHeader, CardTitle, Button } from "reactstrap";
-// import { formatPrice } from './helpers';
-import "../css/style.scss";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import ReviewOrder from "./ReviewOrder";
 
 class Order extends Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class Order extends Component {
 
   render() {
     const orders = this.props.order;
-    console.log(orders)
     const subTotal = orders
       .reduce(function(cnt, order) {
         return cnt + parseFloat(order.price);
@@ -26,45 +25,67 @@ class Order extends Component {
             <CardTitle className="order-title">Order</CardTitle>
           </CardHeader>
 
-          <Table striped className="order-data">
+          <table striped="true" className="order-data">
             {orders.map((order, index) => (
-              <tbody>
-              <tr key={order.index} value={index}>
-                <td className="order-dot"> -</td>
-                <td>
-                  <strong>{order.name}</strong>
-                </td>
-                <td>${order.price}</td>
-                <td className="order-dot"><button className="btn btn--danger btn-sm" onClick={() => this.props.removeOrder(index, order)}>Remove
-                  </button></td>
-              </tr>
+              <tbody key={order.index}>
+                <tr value={index}>
+                  <td className="pl-2"><span className="order-dot" >- </span><strong>{order.name}</strong></td>
+                  <td />
+                  <td>${order.price}</td>
+                  <td className="order-dot">
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => this.props.removeOrder(index, order)}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
               </tbody>
             ))}
-            <tr>
-              <td />
-              <td>
-                <small><strong>Sub Total</strong></small>
-                <br />
-                <small><strong>Tax</strong></small>
-                <br />
-                <strong>Total</strong>
-              </td>
-              <td>
-              </td>
-              <td>
-                <small>$ {subTotal}</small>
-                <br />
-                <small>$ {tax}</small>
-                <hr />
-                $ {total}
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td><hr /></td>
+                <td><hr /></td>
+                <td><hr /></td>
+                <td><hr /></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td className="order-dot pl-2">
+                  <small>
+                    <strong>Sub Total</strong>
+                  </small>
+                  <br />
+                  <small>
+                    <strong>Tax</strong>
+                  </small>
+                  <br />
+                  <strong>Total</strong>
+                </td>
+                <td />
+                <td>
+                  <small>$ {subTotal}</small>
+                  <br />
+                  <small>$ {tax}</small>
+                  <br />
+                  $ {total}
+                </td>
 
-          </Table>
+                <td />
+              </tr>
+            </tbody>
+          </table>
+
           <div className="order-button">
-            <Button className="btn btn-secondary btn-lg btn-block">
-              Checkout
+
+            <Button className="btn btn-secondary btn-lg btn-block" onClick={() => this.props.checkOut(this.props.order)}>
+              <Link to="/review-order">
+                Checkout
+              </Link>
             </Button>
+
           </div>
         </Card>
       </main>

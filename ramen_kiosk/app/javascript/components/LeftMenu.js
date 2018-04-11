@@ -7,16 +7,7 @@ import { Link } from "react-router-dom";
 
 
 class LeftMenu extends Component {
-  constructor(props) {
-    super(props)
-
-    console.log("this state", this.state);
-  }
-
-
-
   render(){
-
     const { menus } = this.props;
 
     return (
@@ -24,9 +15,9 @@ class LeftMenu extends Component {
             {
               menus && menus.map(
                 menu =>
-                  <Link to={{pathname:`/${menu.id}/items`, menu: menu}} >
+                  <Link key={menu.id} to={{pathname:`/${menu.id}/items`, menu: menu}}>
                   {/* <Link to={menu.id+"/items"} > */}
-                    <div key={menu.id} index={menu.id} onClick={(e) => this.props.selectMenu(e)}>
+                    <div index={menu.id}>
                       <Card className="left-menu">
                         <CardHeader className="CardHeader">
                           <CardTitle className="CardTitle">{menu.title}</CardTitle>

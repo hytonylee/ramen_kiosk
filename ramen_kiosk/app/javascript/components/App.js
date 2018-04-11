@@ -18,38 +18,43 @@ class App extends Component {
       menus: [],
       items: []
     };
-    this.selectMenu = this.selectMenu.bind(this);
+    // this.selectMenu = this.selectMenu.bind(this);
+    this.checkOut = this.checkOut.bind(this);
   }
 
-  componentDidMount() {
-    const menuId = 21; //need to get params from address bar on load
-    Menu.all().then(menus => {
-      this.setState({
-        menus: menus.filter(menu => menu.display)
-      });
-    });
-
-    Menu.one(menuId).then(menus => {
-      this.setState({
-        items: menus.items
-      });
-    });
+  checkOut(order) {
+    this.setState({ order: order });
   }
 
-  selectMenu(event) {
-    const menuId = event.currentTarget.getAttribute("index");
-    Menu.all().then(menus => {
-      this.setState({
-        menus: menus.filter(menu => menu.display)
-      });
-    });
+  // componentDidMount() {
+  // const menuId = 21; //need to get params from address bar on load
+  // Menu.all().then(menus => {
+  //   this.setState({
+  //     menus: menus.filter(menu => menu.display)
+  //   });
+  // });
 
-    Menu.one(menuId).then(menus => {
-      this.setState({
-        items: menus.items
-      });
-    });
-  }
+  // Menu.one(menuId).then(menus => {
+  //   this.setState({
+  //     items: menus.items
+  //   });
+  // });
+  // }
+
+  // selectMenu(event) {
+  //   const menuId = event.currentTarget.getAttribute("index");
+  //   // Menu.all().then(menus => {
+  //   //   this.setState({
+  //   //     menus: menus.filter(menu => menu.display)
+  //   //   });
+  //   // });
+  //
+  //   Menu.one(menuId).then(menus => {
+  //     this.setState({
+  //       items: menus.items
+  //     });
+  //   });
+  // }
 
   render() {
     return (
@@ -72,15 +77,22 @@ class App extends Component {
               exact
               path="/:menuId/items"
               render={props => (
-                <ItemPicker
-                  {...props}
-                  items={this.state.items}
-                  selectMenu={this.selectMenu}
-                  menus={this.state.menus}
-                />
+                <ItemPicker key={props.match.params.menuId}
+                  checkOut={this.checkOut}
+                   {...props} />
               )}
             />
-            <Route exact path="/:menuId/review" component={ReviewOrder} />
+            <Route
+              path="/review-order"
+              className="review-order"
+              render={props => (
+                <ReviewOrder key={this.props.id}
+                  items={this.state.items}
+                  order={this.state.order}
+                  {...this.props}
+/>
+              )}
+            />
             <Route component={PageNotFound} />
           </Switch>
         </div>

@@ -17,18 +17,35 @@ import {
   Col
 } from "reactstrap";
 import "../css/style.scss";
-import ReviewOrder from './ReviewOrder'
+import ReviewOrder from "./ReviewOrder";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class ItemPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       items: [],
-      order: []
+      order: [],
+      menus: []
     };
     this.addOrder = this.addOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
+    // this.checkOut = this.checkOut.bind(this);
+  }
+
+  componentDidMount() {
+    const menuId = this.props.match.params.menuId;
+
+    Promise.all([Menu.one(menuId), Menu.all()]).then(res => {
+      const [menu, menus] = res;
+
+      this.setState({
+        loading: false,
+        items: menu.items,
+        menus: menus.filter(menu => menu.display)
+      });
+    });
   }
 
   addOrder(item) {
@@ -37,6 +54,7 @@ class ItemPicker extends Component {
         ...this.state.order,
         {
           id: item.id,
+          image: item.image,
           name: item.item_name,
           price: item.item_price
         }
@@ -48,10 +66,9 @@ class ItemPicker extends Component {
     const order = this.state.order;
     for (let i = 0; i < order.length; i += 1) {
       order.splice(i, 1);
-      }
-    this.setState({order: order})
+    }
+    this.setState({ order: order });
   }
-
 
 
   handleClick(e, data) {
@@ -59,15 +76,18 @@ class ItemPicker extends Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, loading, order } = this.state;
 
+    if (loading) {
+      return <div>Loading!</div>;
+    }
     return (
+
       <main className="ItemPicker">
         <Row>
           <Col xs="2">
             <LeftMenu
-              menus={this.props.menus}
-              selectMenu={this.props.selectMenu}
+              menus={this.state.menus}
             />
           </Col>
           <Col>
@@ -115,19 +135,19 @@ class ItemPicker extends Component {
             </div>
           </Col>
           <Col xs="3">
-            <Switch>
+    
               <Order
                 className="order-list"
                 items={this.state.items}
                 order={this.state.order}
+                addOrder={this.addOrder}
                 removeOrder={this.removeOrder}
+                checkOut={this.props.checkOut}
+                render={props => (
+                  <ReviewOrder key={props.id} {...props} />
+                )}
               />
-              <ReviewOrder
-                className="review-order"
-                items={this.state.items}
-                order={this.state.order}
-              />
-            </Switch>
+
           </Col>
         </Row>
       </main>

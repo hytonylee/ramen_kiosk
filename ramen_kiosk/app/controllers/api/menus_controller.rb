@@ -3,7 +3,7 @@ class Api::MenusController < Api::ApplicationController
   before_action :find_menu, only: [:show, :update, :destroy]
 
   def index
-    menus = Menu.order(created_at: :desc)
+    menus = Menu.order(created_at: :desc).where(display: true)
     render json: menus
   end
 
