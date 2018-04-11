@@ -1,6 +1,10 @@
 /* Header Style  */
 
+
+
 Header{
+  background-color: white;
+  margin-top:0px;
 
   .top{
     font-family: 'Rammetto One', cursive;
@@ -18,30 +22,65 @@ Header{
   }
 }
 
-.logo-circle {
-  font-weight: 900;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  background-color:#fff;
-  border:3px solid red;
-  height:50px;
-  width:50px;
-  border-radius:50%;
-  -moz-border-radius:50%;
-  -webkit-border-radius:50%;
-}
 
 /* Patron Menu Style */
+
+body{
+  margin-top:0px;
+  background-color:#F2F1F1;
+  background-image:
+  radial-gradient(circle at 100% 150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #F2F1F1 24%, white 25%, white 28%, #F2F1F1 29%, #F2F1F1 36%, white 36%, white 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, white 10%, #F2F1F1 11%, #F2F1F1 23%, white 24%, white 30%, #F2F1F1 31%, #F2F1F1 43%, white 44%, white 50%, #F2F1F1 51%, #F2F1F1 63%, white 64%, white 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, white 5%, #F2F1F1 6%, #F2F1F1 15%, white 16%, white 20%, #F2F1F1 21%, #F2F1F1 30%, white 31%, white 35%, #F2F1F1 36%, #F2F1F1 45%, white 46%, white 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+}
+
+main {
+  margin-top: 5px;
+  padding: 5px;
+
+}
 
 .menu-container {
    display: flex;
    flex-wrap: wrap;
    padding: 5px;
+   position: relative;
 
+   .CardHeader{
+     background-color: crimson;
+     padding-bottom: 0px;
+   }
+   .CardTitle{
+     color: white;
+     font-weight: bold;
+   }
 
+   .image-placeholder{
+     width:100%;
+     padding-top: 80%;
+     // background-color: black;
+     overflow: hidden;
+     position: relative;
+   }
 
+   .card-image{
+     display: block;
+     min-width: 100%;
+     min-height: 100%;
+     margin: auto;
+     position: absolute;
+     top: -100%;
+     right: -100%;
+     bottom: -100%;
+     left: -100%;
+   }
 
    .menu-card{
-     width: calc(50% - 2 * 5px);
+     width: calc(100%/3 - 2 * 5px);
+     margin: 5px;
    }
 
    .menu-description{
@@ -50,52 +89,218 @@ Header{
        -webkit-line-clamp: 3;
        -webkit-box-orient: vertical;
    }
+
+  a {
+    color:black;
+  }
+  a:hover{
+    color:black;
+    text-decoration:none;
+  }
  }
 
 .menu-container:last-child {
   align-self: flex-start;
 }
 
-.menu-card.container {
-  margin-left:0px;
-  margin-right:0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  max-width: calc(50% - 2 * 5px);
-}
 
-a:hover {
-    color: red;
-}
-
-.NavButton {
-  background-color: #555555;
-  border: none;
-  border-radius: 2%;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 5px;
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
   width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #222529;
 }
 
+.container:hover .overlay {
+  opacity: 0.8;
+}
 
-.Nav-Selection{
-  padding: 20px;
-  .Nav-Select-Button{
-
-  }
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 
 
 // ===================   Item Page Style ========================
 
-.items-card{
-  width: calc(50% - 2 * 5px);
+
+.item-container {
+  padding-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+
+  .CardHeader{
+    background-color: crimson;
+    padding-bottom: 0px;
+
+    .CardTitle{
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .item-content{
+    padding: 20px;
+    .image-placeholder{
+      width:100%;
+      padding-top: 80%;
+      // background-color: black;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-image{
+      display: block;
+      min-width: 100%;
+      min-height: 100%;
+      margin: auto;
+      position: absolute;
+      top: -100%;
+      right: -100%;
+      bottom: -100%;
+      left: -100%;
+    }
+  }
+  .items-card{
+    width: calc(100%);
+    margin-bottom: 10px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: DarkRed;
+  }
+
+  .container:hover .overlay {
+    opacity: 0.7;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+
+
+// ===================   LeftMenu Style ========================
+
+
+.col-2{
+  margin: 0px;
+  .LeftMenu{
+    padding: 0px;
+
+    a:hover{
+      text-decoration: underline;
+      text-decoration-color: red;
+    }
+
+     .left-menu{
+       width: 100%;
+       margin-bottom: 10px;
+       .CardHeader{
+         background-color:#222529;
+         padding-bottom: 0px;
+         border-bottom: thin solid crimson;
+       }
+       .card-title{
+         color: white;
+         font-weight: bold;
+       }
+       .image-placeholder{
+         width:100%;
+         padding-top: 80%;
+         // background-color: black;
+         overflow: hidden;
+         position: relative;
+       }
+
+       .card-image{
+         display: block;
+         min-width: 100%;
+         min-height: 100%;
+         margin: auto;
+         position: absolute;
+         top: -100%;
+         right: -100%;
+         bottom: -100%;
+         left: -100%;
+       }
+     }
+  }
+}
+
+
+// ==================== Order Style============================
+
+
+main.Order {
+  padding:0px;
+  .order-card{
+    .order-header{
+      padding-bottom: 0px;
+      background-color:#222529;
+      margin-bottom: 0px;
+      border-bottom: thin solid crimson;
+      .order-title{
+        color:white;
+      }
+    }
+  tr{
+    border-bottom: think solid lightgrey;
+  }
+  background-color: white;
+  border: thin solid black;
+    .order-data{
+      padding-left: 0px;
+      margin-left: 0px;
+      background-color: white;
+      .order-dot{
+        color: crimson;
+        font-weight: bold;
+      }
+    }
+    .order-button{
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      a{
+        color:white;
+      }
+      a:hover{
+        color:white;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 
@@ -104,4 +309,28 @@ a:hover {
 .PageNotFound{
   margin-top: 100px;
   text-align: center;
+}
+
+
+// ==================== Review Order =====================
+
+
+.ReviewOrder {
+   display: flex;
+   flex-wrap: wrap;
+   padding: 5px;
+   position: relative;
+   text-align: center;
+
+   .CardHeader{
+     background-color: crimson;
+     padding-bottom: 0px;
+   }
+   .CardTitle{
+     color: white;
+     font-weight: bold;
+   }
+   .CardText{
+     font-size: 12;
+   }
 }

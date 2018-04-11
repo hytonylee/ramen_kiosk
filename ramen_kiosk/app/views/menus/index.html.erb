@@ -19,11 +19,12 @@
                   fa_icon('times'),
                   menu_path(menu),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' }
                 ) %>
           </div>
         </div>
-        <img class="card-img-top" src="<%= menu.image %>" alt="Card image cap">
+        <div class="image-placeholder">
+          <img class="card-img-top card-image" src="<%= menu.image %>" alt="Card image cap">
+        </div>
         <div class="card-body">
 
           <p class="card-text">
