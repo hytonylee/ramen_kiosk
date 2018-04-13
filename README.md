@@ -1,6 +1,6 @@
 # Ramen Kiosk
 
-Ramen shop has become trendy for sometime in Vancouver.
+Ramen Kiosk is inspired by how most ramen shops operate in Japan, where there would be token vending machines with listed menu items display on them as the image shown below. Once order is completed, patron receive token and can pay at the counter once their food is ready.
 <br />
 <img src="http://tastyislandhawaii.com/images13/general/japanese_vending_machine_ramen.jpg" alt="RamenTokenVendingMachine" width="50%">
 <br />
@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+The app is built on Ruby on Rails as back end with webpacker gem, a
 
 ```
 Give examples
