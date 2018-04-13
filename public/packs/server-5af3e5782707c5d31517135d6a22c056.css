@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* Header Style  */
+Header.top {
+  font-family: 'Rammetto One', cursive;
+  border-bottom: solid thin #222529;
+  border-width: 20px; }
+.logo-circle {
+  font-weight: 900;
+  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro", "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic", sans-serif;
+  background-color: #fff;
+  border: 3px solid red;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%; }
+/* Patron Menu Style */
+.menu-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px; }
+.menu-container .menu-card {
+    width: calc(50% - 10px); }
+.menu-container .menu-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; }
+.menu-container:last-child {
+  -ms-flex-item-align: start;
+      align-self: flex-start; }
+.menu-card.container {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: calc(50% - 10px); }
+a:hover {
+  color: red; }
+.NavButton {
+  background-color: #555555;
+  border: none;
+  border-radius: 2%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 5px;
+  width: 100%; }
+.Nav-Selection {
+  padding: 20px; }
+
+/*# sourceMappingURL=server-5af3e5782707c5d31517135d6a22c056.css.map*/

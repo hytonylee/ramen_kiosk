@@ -1,3 +1,4 @@
+
 # Ramen Kiosk
 
 Ramen Kiosk is inspired by how most ramen shops operate in Japan, where there would be token vending machines with listed menu items display on them as the image shown below. Once order is completed, patron receive token and can pay at the counter once their food is ready.
@@ -65,4 +66,5 @@ password: public123
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 
