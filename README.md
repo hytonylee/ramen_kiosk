@@ -11,48 +11,56 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-The app is built on Ruby on Rails as back end with webpacker gem, a
-
-```
-Give examples
-```
+The app is built on
+<ul>
+  <li>Ruby on Rails</li>
+  <li>Webpacker Gem</li>
+  <li>ReactJs</li>
+  <li>PostgreSQL</li>
+</ul>
 
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
+To make sure you have all the tools necessary for Ruby on Rails, you shoud check below tutorial for installing Xcode, Homebrew, Git, RVM, and Ruby on a Mac.
+<ul>
+  <li><a href="https://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/">Link</a></li>
+</ul>
+
+Check Your Rails Version
+
+<ul>
+  <li><a href="http://railsapps.github.io/installrubyonrails-mac.html">Link</a></li>
+</ul>
+
+Bundle Install
 
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-
-
-
-
-## Deployment
-
-```Add additional notes about how to deploy this on a live system```
-
-## Built With
-
-```
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+In your terminal under where you save the file, you can type in 'bundle install' to
+install all the GEM that comes with the App, which includes Webpacker Gem.
 ```
 
 
-## Authors
+## Test
 
+To test the app, you can use the following information to start the server
 
+React Front End
+```
+bin/webpack-dev-server
+```
+
+Rails Back End and Front End
+```
+rails s
+```
+
+Login Info
+```
+account: public@gmail.com
+password: public123
+```
 
 ## License
 
