@@ -1,0 +1,60 @@
+/* Header Style  */
+
+Header.top {
+  font-family: 'Rammetto One', cursive;
+  border-bottom: solid thin black;
+  margin: 0;
+}
+
+.logo-circle {
+  font-weight: 900;
+  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro", "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", "MS PGothic", sans-serif;
+  background-color:#fff;
+  border:3px solid red;
+  height:50px;
+  width:50px;
+  border-radius:50%;
+  -moz-border-radius:50%;
+  -webkit-border-radius:50%;
+}
+
+/* Patron Menu Style */
+
+.menu-container {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -ms-flex-wrap: wrap;
+       flex-wrap: wrap;
+   padding: 5px;
+ }
+
+div > .menu-card {
+   width: 100%;
+   margin: 5px;
+
+ }
+
+@media only screen and (min-width: 576px){
+
+
+   div > .menu-card {
+     width: calc(50% - 10px);
+   }
+ }
+
+@media only screen and (min-width: 768px) {
+
+   div > .menu-card {
+     width: calc(33.33333% - 10px);
+   }
+}
+
+.menu-description{
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/*# sourceMappingURL=patron-dba8347d59c09d30f7312f8f544a5026.css.map*/
