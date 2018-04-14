@@ -59,8 +59,8 @@ rails s
 
 Login Info
 ```
-account: public@gmail.com
-password: public123
+account: demo@gmail.com
+password: demo
 ```
 
 ## License
