@@ -33,12 +33,14 @@ class Ability
 
     # Example usage testing this rule:
     # can?(:manage, Question.last)
-    can :crud, Menu do |menu|
+    can :update, Menu do |menu|
       menu.user == user
     end
 
-    can :like, Menu do |menu|
-      menu.user != user
+    can :update, Item do |item|
+      menu.user == user
     end
+
+
   end
 end
