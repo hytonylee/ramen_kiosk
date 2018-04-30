@@ -4,12 +4,24 @@
 Ramen Kiosk is inspired by how most ramen shops operate in Japan, where there would be token vending machines with listed menu items display on them as the image shown below. Once order is completed, patron receive token and can pay at the counter once their food is ready.
 
 Patron side: https://ramenkiosk.herokuapp.com/patrons/
-Restaurnat Operator side: https://ramenkiosk.herokuapp.com/
+Shop Operator side: https://ramenkiosk.herokuapp.com/
 
 
 <br />
 <img src="http://tastyislandhawaii.com/images13/general/japanese_vending_machine_ramen.jpg" alt="RamenTokenVendingMachine" width="50%">
 <br />
+
+## App Instruction
+
+<br />
+<img src="https://goo.gl/sJSEmR" alt="FirstPage" width="50%">
+Patron side's landing page.
+<br />
+<img src="https://photos.app.goo.gl/YTrihthENWXJgfuC8" alt="FirstPage" width="50%">
+<br />
+Shop Operator landing page.
+
+
 
 ## Getting Started
 
@@ -60,12 +72,6 @@ bin/webpack-dev-server
 Rails Back End and Front End
 ```
 rails s
-```
-
-Login Info
-```
-account: demo@gmail.com
-password: demo
 ```
 
 ## License
