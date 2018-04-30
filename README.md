@@ -13,11 +13,23 @@ Shop Operator side: https://ramenkiosk.herokuapp.com/
 
 ## App Instruction
 
+### Patron Side
 <br />
-<img src="https://goo.gl/sJSEmR" alt="FirstPage" width="50%">
+<img src="patron-select-menu.png" width="50%">
 Patron side's landing page.
 <br />
-<img src="https://photos.app.goo.gl/YTrihthENWXJgfuC8" alt="FirstPage" width="50%">
+<img src="patron-select-item.png" width="50%">
+A patron selects a item.
+<br />
+<img src="patron-items-count.png" width="50%">
+Patron's order summary on the side.
+<br />
+<img src="patron-receipt-number.png" width="50%">
+Once the order is completed, a random number is generated for the patron.
+
+### Operator Side
+<br />
+<img src="operator-landing-page.png" alt="FirstPage" width="50%">
 <br />
 Shop Operator landing page.
 
