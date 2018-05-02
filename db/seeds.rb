@@ -20,6 +20,29 @@ lunch_menu = Menu.create(
   image: File.open('app/assets/images/menu_sample.jpg')
 )
 
+ramen_menu = Menu.create(
+  title: 'Lunch Menu',
+  description:
+    'The Spring Business Lunch provides you a quick and delight choices for busy work week.',
+  display: true,
+  image: File.open('app/assets/images/menu_sample1.jpg')
+)
+
+dessert_menu = Menu.create(
+  title: 'Lunch Menu',
+  description:
+    'The Spring Business Lunch provides you a quick and delight choices for busy work week.',
+  display: true,
+  image: File.open('app/assets/images/dessert.jpg')
+)
+drink_menu = Menu.create(
+  title: 'Lunch Menu',
+  description:
+    'The Spring Business Lunch provides you a quick and delight choices for busy work week.',
+  display: true,
+  image: File.open('app/assets/images/sample.jpg')
+)
+
 Item.destroy_all
 
 
