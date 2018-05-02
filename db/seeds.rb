@@ -1,9 +1,14 @@
-
-
+PASSWORD = 'supersecret'
 
 User.destroy_all
 
-
+super_user = User.create(
+  first_name: 'Mr',
+  last_name: 'Ramen',
+  email: 'admin@ramen.ca',
+  password: PASSWORD,
+  is_admin: true
+)
 
 Menu.destroy_all
 
@@ -14,6 +19,10 @@ lunch_menu = Menu.create(
   display: true,
   image: File.open('app/assets/images/menu_sample.jpg')
 )
+
+Item.destroy_all
+
+
 
 
 

@@ -1,10 +1,10 @@
 <%= form_with(model: @menu, local: true) do |form| %>
 <% if @menu.errors.any? %>
   <div id="error_explanation" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</strong>
+    <strong><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</strong>
 
     <p>
-      <% menu.errors.full_messages.each do |message| %>
+      <% @menu.errors.full_messages.each do |message| %>
         <%= message %>
       <% end %>
     </p>
