@@ -13,7 +13,6 @@ Ramen Kiosk is inspired by how most ramen shops operate in Japan, where there wo
 
 ### Patron Side
 <br />
-<img src="patron-select-menu.png" width="50%">
 Patron side's landing page.
 <br />
 <img src="patron-select-item.png" width="50%">
